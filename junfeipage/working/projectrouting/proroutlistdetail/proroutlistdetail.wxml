@@ -1,0 +1,27 @@
+<!--junfeipage/working/projectrouting/proroutlistdetail/proroutlistdetail.wxml-->
+<import src="../../../../common/wetoast/wetoast.wxml" />
+<template is="wetoast" data="{{... __wetoast__}}" />
+<view class="container">
+  <view class="project-textarea">
+    <label>巡检事件</label>
+    <view>{{proroutlistdetail.Matter}}</view>
+  </view>
+  <view class="project-textarea">
+    <label>巡检内容</label>
+    <view>{{proroutlistdetail.Content}}</view>
+  </view>
+  <view class="add-image">
+    <view class="add-image-title">附件</view>
+    <view class="weui-uploader__files">
+      <block wx:for="{{imgpath}}">
+        <view class="weui-uploader__file">
+          <image class="weui-uploader__img" src="https://wx.demo.cneefix.com{{item.Path}}" data-path="https://wx.demo.cneefix.com{{item.Path}}" bindtap="previewimgpath"></image>
+        </view>
+      </block>
+    </view>
+     </view>
+    <view class="projectcell">
+      <label>巡检时间</label>
+      <text>{{routdate}}</text>
+    </view>
+  </view>

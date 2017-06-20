@@ -1,0 +1,11 @@
+/* junfeipage/working/submitaudit/submitaudit.wxss */
+
+.overcontent {
+  margin-top: -35px;
+}
+
+.overcontent text {
+  display: block;
+  line-height:20px;
+  height: 20px;
+}

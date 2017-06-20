@@ -1,0 +1,236 @@
+/* junfeipage/working/myrepair/myrepairDetail/myrepairDetail.wxss */
+
+.content {
+  height: 100%;
+  overflow: auto;
+  font-size: 32rpx;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+}
+
+.content-wrapper {
+  min-height: 100%;
+  overflow: auto;
+}
+
+.content-main {
+  padding-bottom: 180px;
+}
+
+.common-cell-hd {
+  height: 35px;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+}
+
+.common-cell-hd text {
+  display: inline-block;
+  line-height: 35px;
+  width: 35%;
+  padding-left: 20px;
+  color: #468ceb;
+}
+
+.common-cell-hd image {
+  width: 24px;
+  height: 24px;
+  float: right;
+  margin-top: 5px;
+  margin-right: 15px;
+}
+
+.common-cell-bd {
+  height: 0;
+  overflow: hidden;
+}
+
+.common-bd-item {
+  margin: 0 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.bd-item-hook {
+  margin: 10px 0;
+}
+
+.bd-item-hook label {
+  display: inline-block;
+  width: 35%;
+  vertical-align: top;
+}
+
+.bd-item-hook text {
+  display: inline-block;
+  width: 60%;
+  vertical-align: top;
+  text-align: right;
+}
+
+.common-bd-item .title {
+  line-height: 35px;
+}
+
+.common-bd-item .title label {
+  width: 35%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.common-bd-item .title text {
+  width: 65%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: right;
+}
+
+.com-sub-list {
+  margin-top: -180px;
+}
+
+.common-submit {
+  display: block;
+  width: 90%;
+  height: 35px;
+  text-align: center;
+  color: #fff;
+  line-height: 35px;
+  font-size: 16px;
+  margin: 0 auto 10px;
+  border-radius: 10rpx;
+  background: #468ceb;
+}
+
+.common-bd-show {
+  height: auto;
+  overflow: hidden;
+}
+
+.bd-item-hook radio-group {
+  width: 60%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.bd-item-hook radio-group radio {
+  width: 45%;
+  display: inline-block;
+}
+
+.bd-item-hook input {
+  width: 60%;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid #eee;
+  padding-left: 2%;
+}
+
+.common-bd-item .title input {
+  width: 60%;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid #eee;
+  padding-left: 2%;
+}
+
+.zhezhao {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.Model {
+  position: absolute;
+  top: 8%;
+  z-index: 10;
+  background: #fff;
+  width: 80%;
+  left: 5%;
+  height: auto;
+  overflow: hidden;
+  margin: auto;
+  padding: 5%;
+}
+
+.model-item {
+  margin: 10px 0;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+}
+
+.model-item:last-child{
+  border-bottom:none;
+}
+
+.model-item picker{
+  width: 100%;
+}
+
+.model-item label {
+  display: inline-block;
+  width: 35%;
+  vertical-align: middle;
+  height: 35px;
+  line-height: 35px;
+}
+
+.model-item input,.model-item text{
+  display: inline-block;
+  width: 60%;
+  height: 35px;
+  line-height: 35px;
+  text-indent: 5px;
+  vertical-align: middle;
+}
+
+.model-item image{
+  width: 5%;
+  display: inline-block;
+  vertical-align: middle;
+  height: 15px;
+}
+
+.model-item.special picker{
+  width: 5%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.model-item.special image{
+  width: 100%;
+}
+
+.Fee-item {
+  margin: 10px;
+}
+
+.Fee-item label {
+  width: 35%;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+
+.Fee-item text{
+  width: 30%;
+  display: inline-block;
+  text-align: right;
+  vertical-align: top;
+}
+
+.Fee-item text.money {
+  color: red;
+}
+
+.common-bd-item text.add{
+  color: #4BCEFF
+}
+
+.Fee-item text.del{
+  color: red;
+}
+

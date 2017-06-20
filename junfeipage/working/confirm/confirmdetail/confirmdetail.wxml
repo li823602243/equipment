@@ -1,0 +1,37 @@
+
+<!--junfeipage/working/confirm/confirmdetail/confirmdetail.wxml-->
+<import src="../../../../common/wetoast/wetoast.wxml" />
+<view class="container">
+  <view class="projectcells">
+    <view class="projectcell">
+      <label>资产名称</label>
+      <text>{{confirmData.Name}}</text>
+    </view>
+    <view class="projectcell">
+      <label>资产品牌</label>
+      <text>{{confirmData.Brand}}</text>
+    </view>
+    <view class="projectcell">
+      <label>资产型号</label>
+      <text>{{confirmData.Model}}</text>
+    </view>
+    <view class="projectcell">
+      <label>资产编码</label>
+      <text>{{confirmData.Snoz}}</text>
+    </view>
+    <view class="projectcell">
+      <label>借用数量</label>
+      <text>{{confirmData.Num}}</text>
+    </view>
+    <view class="projectcell">
+      <label>借用人</label>
+      <text>{{confirmData.RecipientsName}}</text>
+    </view>
+    <view wx:if="{{confirmData.Statuz==1}}" class="projectcell">
+      <label>状态</label>
+      <text style="color: #ea9d3b;">已借用</text>
+    </view>
+  </view>
+  <view wx:if="{{confirmData.Statuz!=1}}" catchtap="submittap" data-id="{{item.Id}}" class="projectrecbtn">借用确认</view>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

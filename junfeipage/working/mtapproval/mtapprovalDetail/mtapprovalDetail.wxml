@@ -1,0 +1,142 @@
+
+<!--junfeipage/working/mtapproval/mtapprovalDetail/mtapprovalDetail.wxml-->
+<import src="../../../../common/wetoast/wetoast.wxml" />
+<view class="content">
+  <view class="content-wrapper">
+    <view class="content-main">
+      <view class="common-cell">
+        <view data-idx="0" class="common-cell-hd" bindtap="toggle">
+          <text>报修信息</text>
+          <image src="{{show[0]?'../../../../images/downtip.png':'../../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[0]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>设备编码</label>
+              <text>{{list.AssetCode}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>设备名称</label>
+              <text>{{list.DeviceCodeName}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>设备品牌</label>
+              <text>{{list.Brand}}</text>
+            </view>
+
+            <!--<view class="bd-item-hook">
+              <label>设备型号</label>
+              <text>{{list.Model}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>存放地点</label>
+              <text>{{list.FullAddress}}</text>
+            </view>-->
+          </view>
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>报修单位</label>
+              <text>{{list.SchoolName}}</text>
+            </view>
+
+            <!--<view class="bd-item-hook">
+              <label>报 修 人</label>
+              <text>{{list.Name}}</text>
+            </view>-->
+            <view class="bd-item-hook" wx:if="{{list.NeedMobile==null}}">
+              <label>联系电话</label>
+              <text></text>
+            </view>
+             <view class="bd-item-hook" wx:if="{{list.NeedMobile!=null}}">
+              <label>联系电话</label>
+              <text>{{list.NeedMobile}}</text>
+            </view>
+          </view>
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>报修时间</label>
+              <text>{{list.RegTime}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>是否过保</label>
+              <text>{{zhibao}}</text>
+            </view>
+          </view>
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>故障现象</label>
+              <text>{{list.Fault}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="common-cell" wx:if="{{unitid==2}}">
+        <view data-idx="1" class="common-cell-hd" bindtap="toggle">
+          <text>维修费用</text>
+          <image src="{{show[1]?'../../../../images/downtip.png':'../../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[1]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>服务费</label>
+              <text>¥{{list.ServiceFee}}</text>
+            </view>
+          </view>
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>配件费</label>
+              <text>¥{{list.PartsFee}}</text>
+            </view>
+          </view>
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>上门费</label>
+              <text>¥{{list.HomeFee}}</text>
+            </view>
+          </view>
+          <view class="common-bd-item">
+            <view class="title">
+              <label>费用合计</label>
+              <text style="color:red">¥{{totalFee}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="common-cell">
+        <view data-idx="2" class="common-cell-hd" bindtap="toggle">
+          <text>报修审批</text>
+          <image src="{{show[2]?'../../../../images/downtip.png':'../../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[2]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view class="bd-item-hook1">
+
+              <!--<label>审批结果</label>
+              <text>{{aprres}}</text>
+              <picker mode="selector" range="{{result}}" value="{{index}}" bindchange="listenerPickerSelected">
+                <image src="../../../../images/more.png"></image>
+              </picker>-->
+              <label>审批结果</label>
+              <radio-group bindchange="radioChange">
+                <radio value="{{pass}}" checked="{{pass}}">通过</radio>
+                <radio value="{{!pass}}" checked="{{!pass}}">不通过</radio>
+              </radio-group>
+            </view>
+            <view class="bd-item-hook">
+              <label>审批意见</label>
+              <input type="text" bindinput="getAdvice" />
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="com-sub-list">
+    <form report-submit bindsubmit="submit">
+      <button class="common-submit" formType="submit">
+        提交
+      </button>
+    </form>
+  </view>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

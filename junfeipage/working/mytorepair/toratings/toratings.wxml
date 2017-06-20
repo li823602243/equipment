@@ -1,0 +1,48 @@
+
+<!--junfeipage/working/mytorepair/toratings/toratings.wxml-->
+<import src="../../../../common/wetoast/wetoast.wxml" />
+<view class="container">
+  <view class="title">维修评价</view>
+  <view class="ratings">
+    <view class="ratings-item">
+      <label>综合评价</label>
+      <view>
+        <block wx:for="{{startlist}}">
+          <image bindtap="startlist1" data-key="{{item+1}}" src="{{key1>item?startselectedsrc:startsrc}}"></image>
+        </block>
+      </view>
+    </view>
+    <view class="ratings-item">
+      <label>服务态度</label>
+      <view>
+        <block wx:for="{{startlist}}">
+          <image bindtap="startlist2" data-key="{{item+1}}" src="{{key2>item?startselectedsrc:startsrc}}"></image>
+        </block>
+      </view>
+    </view>
+    <view class="ratings-item">
+      <label>技术能力</label>
+      <view>
+        <block wx:for="{{startlist}}">
+          <image bindtap="startlist3" data-key="{{item+1}}" src="{{key3>item?startselectedsrc:startsrc}}"></image>
+        </block>
+      </view>
+    </view>
+    <view class="ratings-item">
+      <label>响应速度</label>
+      <view>
+        <block wx:for="{{startlist}}">
+          <image bindtap="startlist4" data-key="{{item+1}}" src="{{key4>item?startselectedsrc:startsrc}}"></image>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class="ratings-item-hook">
+    <label>评价内容</label>
+    <textarea bindblur="getMemo" />
+  </view>
+  <view class="btn" bindtap="submit">
+    提交
+  </view>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

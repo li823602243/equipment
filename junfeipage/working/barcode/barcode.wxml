@@ -1,0 +1,43 @@
+
+<!--二维码绑定-->
+<import src="../../../common/wetoast/wetoast.wxml" />
+<import src="../../../common/workindex/workindex.wxml" />
+<view class="container">
+  <template is="projectChoose" data="{{projectnum,projectname,schoolname,projectid,hasschoolurl,schoolsstatus}}" />
+  <view class="project-mark">
+    <view class="project-item">
+      <text>二维码编码</text>
+      <input bindconfirm="barcodeinput" value="{{barcodeinputdata}}" placeholder="请输入编码" />
+      <image bindtap="onesweep" src="../../../images/barcode.png"></image>
+    </view>
+    <view wx:if="{{removesave}}" class="project-item">
+      <text>存放地点</text>
+      <view class="projectnum">{{barcodeaddrname}}</view>
+    </view>
+    <view wx:else bindtap="codeaddress" class="project-item">
+      <text>存放地点</text>
+      <view class="projectnum">{{barcodeaddrname}}</view>
+      <image src="../../../images/more.png"></image>
+    </view>
+    <view wx:if="{{removesave}}"class="project-item">
+      <text>设备名称</text>
+      <view class="projectnum">{{barcodedicname}}</view>
+    </view>
+    <view wx:else bindtap="devicenametap" class="project-item">
+      <text>设备名称</text>
+      <view class="projectnum">{{barcodedicname}}</view>
+      <image src="../../../images/more.png"></image>
+    </view>
+  </view>
+  <view class="submitlist">
+    <view wx:if="{{scansave}}" bindtap="barcodesavetap" class="save">保存</view>
+    <view wx:if="{{removesave}}" bindtap="unbindtap" class="unbind">解绑</view>
+  </view>
+  <view wx:if="{{barcodeList.length}}" class="barcodelist">
+    <view class="barcodecontent">
+      <label>绑定二维码列表</label>
+      <text wx:for="{{barcodeList}}" wx:key="{{index}}">{{item.Sno}}</text>
+    </view>
+  </view>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

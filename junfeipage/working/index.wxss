@@ -1,0 +1,68 @@
+/*工作页面组件样式*/
+
+.work-item {
+  width: 24.66%;
+  float: left;
+  border-right: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+  padding: 5px 0;
+  background: #fff;
+}
+
+.workindex-container {
+  border-top: 1px solid #d9d9d9;
+}
+
+.project-item {
+  margin-bottom: 15px;
+}
+.project-item text{
+  width: 25%;
+}
+.project-item image{
+  margin-left:10%;
+
+}
+.project-item input{
+  width: 50%;
+
+}
+.work-icon-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin:5px;
+  height: 75%;
+}
+
+.work-icon {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.work-text-wrapper {
+  text-align: center;
+ padding: 5px 0;
+}
+
+.work-text {
+  color: #4f4f4f;
+}
+
+.workindex-content {
+  padding-top: 15px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.workindex-title {
+  text-align: left;
+  text-indent: 10px;
+  background: #fff;
+  padding: 5px 0;
+}
+
+.workindex-title text {
+  display: block;
+}
+

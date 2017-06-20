@@ -1,0 +1,22 @@
+/* junfeipage/setting/index.wxss */
+
+.setting-item {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  height: 110rpx;
+  line-height: 110rpx;
+}
+
+.setting-item text {
+  width: 85%;
+  display: inline-block;
+  margin-left: 5%;
+}
+
+.setting-item image {
+  width: 50rpx;
+  height: 50rpx;
+  display: inline-block;
+  vertical-align: middle;
+}

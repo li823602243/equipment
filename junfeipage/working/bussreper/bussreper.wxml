@@ -1,0 +1,6 @@
+<!--junfeipage/working/bussreper/bussreper.wxml-->
+<view class="">
+    <block wx:for="{{list}}">
+        <view data-id="{{item.Id}}" data-repname="{{item.Name}}" data-tel="{{item.Mobile}}" bindtap="chooserepper">{{item.Name}}          </view>
+    </block>
+</view>

@@ -1,0 +1,70 @@
+
+<!--junfeipage/working/enterpriserepair/enterpriserepair.wxml-->
+
+<!--企业报修页面-->
+<import src="../../../common/wetoast/wetoast.wxml" />
+<view class="container">
+  <view class="common-cells">
+    <view class="project-item">
+      <text>设备编码</text>
+      <input placeholder="请输入编码" value="{{AssetCode}}" bindconfirm="getAssetcode" />
+      <image src="../../../images/barcode.png" bindtap="getCode"></image>
+    </view>
+    <view class="common-item" bindtap="gotoEquipTree">
+      <label>设备名称</label>
+      <text>{{DeviceCodeName}}</text>
+      <image src="../../../images/more.png"></image>
+    </view>
+    <view class="common-item">
+      <picker mode="selector" range="{{array}}" value="{{index}}" bindchange="listenerPickerSelected" class="warranty">
+        <label>是否过保</label>
+        <text>{{zhibao}}</text>
+        <image src="../../../images/more.png"></image>
+      </picker>
+    </view>
+    <view class="common-item" bindtap="gotorepaddr">
+      <label>维修单位</label>
+      <text>{{CompanyName}}</text>
+      <image src="../../../images/more.png"></image>
+    </view>
+    <view class="common-item" wx:if="{{role!=0}}">
+      <label>联系电话</label>
+      <text>{{CompanyTel}}</text>
+    </view>
+    <view class="common-item" bindtap="gotoAddress">
+      <label>设备地点</label>
+      <text>{{Address}}</text>
+      <image src="../../../images/more.png"></image>
+    </view>
+    <view class="common-item" wx:if="{{hasOther}}">
+      <label>其他地点</label>
+      <input type="text" value="{{OtherAddressName}}" bindinput="getOtherAddress" />
+    </view>
+    <view class="common-item special">
+      <label>设备品牌</label>
+      <input type="text" value="{{Brand}}" bindinput="getBrand" />
+      <picker mode="selector" range="{{Models}}" value="{{Models}}" bindchange="BrandChange">
+        <image src="../../../images/more.png"></image>
+      </picker>
+    </view>
+    <view class="common-item">
+      <label>设备型号</label>
+      <input type="text" value="{{model}}" bindinput="getModel" />
+    </view>
+    <view class="common-item">
+      <label>故障描述</label>
+      <!--<input type="text" value="{{Fault}}" bindinput="getFault" />-->
+      <textarea value="{{Fault}}" bindinput="getFault" />
+    </view>
+    <view class="common-item" wx:if="{{Memo!=''& Memo!=null}}">
+      <label>退回原因</label>
+      <text style="color:red">{{Memo}}</text>
+    </view>
+    <form report-submit bindsubmit="submit">
+      <button class="submit" formType="submit">
+        提交
+      </button>
+    </form>
+  </view>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

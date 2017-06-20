@@ -1,0 +1,12 @@
+<!--junfeipage/working/choosedevicename/choosedevicename.wxml-->
+<view class="container">
+  <view class="weui-cells searchbar-result">
+    <block wx:for="{{wxSearchData}}" wx:key="{{index}}">
+      <view bindtap="prnumtap" data-projectcontaractlistid="{{item.ProjectContractListId}}" class="weui-cell" data-name="{{item.Name}}">
+        <view class="weui-cell__bd">
+          <view>{{item.Name}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

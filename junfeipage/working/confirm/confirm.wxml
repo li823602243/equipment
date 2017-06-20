@@ -1,0 +1,47 @@
+
+<!--junfeipage/working/confirm/confirm.wxml-->
+<import src="../../../common/wetoast/wetoast.wxml" />
+<view class="container">
+  <view class="preloader" wx:if="{{hasnodata}}">暂无数据</view>
+  <block wx:else>
+    <view wx:for="{{confirmdataList}}" wx:key="{{index}}" bindtap="confirmdetail" class="projectcells" data-id="{{item.Id}}">
+      <view class="projectcell">
+        <label>资产名称</label>
+        <text>{{item.Name}}</text>
+      </view>
+      <view class="projectcell">
+        <label>资产品牌</label>
+        <text>{{item.Brand}}</text>
+      </view>
+      <view class="projectcell">
+        <label>资产型号</label>
+        <text>{{item.Model}}</text>
+      </view>
+      <view class="projectcell">
+        <label>资产编码</label>
+        <text>{{item.Snoz}}</text>
+      </view>
+      <view class="projectcell">
+        <label>借用数量</label>
+        <text>{{item.Num}}</text>
+      </view>
+      <view wx:if="{{item.Statuz==1}}" class="projectcell">
+        <label>状态</label>
+        <text style="color: #ea9d3b;">已借用</text>
+      </view>
+      <view wx:if="{{item.Statuz!=1}}" class="operate clearfix">
+        <view class="fillrecord" data-id="{{item.Id}}" bindtap="confirmdetail">借用确认</view>
+      </view>
+    </view>
+    <view hidden="{{hidden}}">
+      <view class="preloader" wx:if="{{hasMore}}">
+        <icon type="waiting" size="25" />
+        <text>玩命的加载中...</text>
+      </view>
+      <view class="preloader" wx:else>
+        <text>没有更多内容了</text>
+      </view>
+    </view>
+  </block>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

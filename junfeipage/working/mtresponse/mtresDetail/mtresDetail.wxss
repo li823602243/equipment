@@ -1,0 +1,83 @@
+/* junfeipage/working/mtresponse/mtresDetail/mtresDetail.wxss */
+.mtres-list-item{
+    background: #fff;
+}
+
+.mtres-list-item-hook{
+    color: #468ceb;
+    height:30px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    line-height: 30px;
+    font-size: 16px;
+}
+
+.mtres-list-item-bd{
+    padding: 0 10px;
+}
+
+.mt-list-items{
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+    overflow:hidden;
+}
+
+.mt-list-item{
+     margin: 10px 0;
+}
+
+.mt-list-item label{
+    width: 25%;
+    display: inline-block;
+    color:#468ceb;
+    vertical-align: top;
+}
+
+.mt-list-item text{
+    width: 65%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.mtres-list-item-bd{
+    height:auto;
+    overflow: hidden;
+}
+
+
+.content{
+    height:100%;
+    overflow: auto;
+    font-size: 32rpx;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+}
+
+.mtres-detail{
+    height:100%;
+     overflow: auto;
+}
+
+.mtres-detail-list{
+    padding-bottom:90px;
+}
+
+
+.btn-group{
+    position: relative;
+    margin-top:-90px;
+    width: 100%;
+}
+
+.mt-btn{
+    display: block;
+    width: 90%;
+    height:35px;
+    line-height: 35px;
+    text-align: center;
+    color: #fff;
+    border-radius: 10rpx;
+    background: #468ceb;
+    margin:0 auto 10px;
+}
+
+

@@ -1,0 +1,15 @@
+<!--junfeipage/working/repairaddr/repairaddr.wxml-->
+<import src="../../../common/wxsearch.wxml" />
+<view class="container">
+   <template is="wxsearch" data="{{searchname:'维修单位',inputVal:inputVal,inputShowed:inputShowed,inputTyping:inputTyping,clearInput:clearInput,showInput:showInput,hideInput:hideInput,searchconfirm:searchconfirm}}" />
+   <view class="weui-cells searchbar-result">
+    <block wx:for="{{list}}" wx:key="{{index}}">
+      <view bindtap="chooseCompany"data-compname="{{item.Name}}" data-tel="{{item.Mobile}}" data-id="{{item.Id}}" class="weui-cell" hover-class="weui-cell_active">
+        <view  class="weui-cell__bd">
+          <view >{{item.Name}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

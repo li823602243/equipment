@@ -1,0 +1,138 @@
+
+<!--junfeipage/working/Equipinfo/Equipinfo.wxml-->
+<import src="../../../common/wetoast/wetoast.wxml" />
+<view class="content">
+  <view class="content-wrapper">
+    <view class="content-main">
+      <view class="common-cell">
+        <view data-idx="0" class="common-cell-hd" bindtap="toggle">
+          <text>设备信息</text>
+          <image src="{{show[0]?'../../../images/downtip.png':'../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[0]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>设备编号</label>
+              <text>{{list.Sno}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>设备名称</label>
+              <text>{{list.Name}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>设备品牌</label>
+              <text>{{list.Brand}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>设备型号</label>
+              <text>{{list.Model}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>计量单位</label>
+              <text>{{list.UnitName}}</text>
+            </view>
+            <view class="bd-item-hook" wx:if="{{roleid}}">
+              <label>单价</label>
+              <text>{{list.Price}}</text>
+            </view>
+            <view class="bd-item-hook" wx:if="{{roleid}}">
+              <label>总价</label>
+              <text>{{list.Sum}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>购买日期</label>
+              <text>{{list.AcceptanceDate}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>质保截止日期</label>
+              <text>{{list.Warranty}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>报废截止日期</label>
+              <text>{{list.Scrap}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="common-cell">
+        <view data-idx="1" class="common-cell-hd" bindtap="toggle">
+          <text>单位信息</text>
+          <image src="{{show[1]?'../../../images/downtip.png':'../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[1]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>使用单位</label>
+              <text>{{list.SchoolName}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>使用地点</label>
+              <text>{{list.Address}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="common-cell">
+        <view data-idx="2" class="common-cell-hd" bindtap="toggle">
+          <text>项目信息</text>
+          <image src="{{show[2]?'../../../images/downtip.png':'../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[2]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>项目编号</label>
+              <text>{{list.ProjectCode}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>供应商</label>
+              <text>{{list.CompanyName}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>项目分类</label>
+              <text>{{list.ClassName}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>设备分类</label>
+              <text>{{list.DeviceName}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>中标日期</label>
+              <text>{{list.BidDate}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>开工日期</label>
+              <text>{{list.ProjectRegDate}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>完工日期</label>
+              <text>{{list.CompletionDate}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>验收日期</label>
+              <text>{{list.AcceptanceDate}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="common-cell">
+        <view data-idx="3" class="common-cell-hd" bindtap="toggle">
+          <text>具体配置</text>
+          <image src="{{show[3]?'../../../images/downtip.png':'../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[3]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>配置信息</label>
+              <text>{{list.Explain}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="com-sub-list" wx:if="{{unitid==3}}">
+     <button class="common-submit" type="button" bindtap="repairbyschool">向学校报修</button>
+     <button class="common-submit" type="button" bindtap="repairbybuss">向企业报修</button>
+  </view>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

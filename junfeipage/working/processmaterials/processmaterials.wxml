@@ -1,0 +1,27 @@
+
+<!--过程材料页面-->
+<import src="../../../common/workindex/workindex.wxml" />
+<import src="../../../common/wetoast/wetoast.wxml" />
+<view class="container">
+  <template is="projectChoose" data="{{projectnum,projectname,schoolname,projectid,hasschoolurl,schoolsstatus}}" />
+  <view bindtap="attachmenttap" class="project-item">
+    <text>材料名称</text>
+    <view class="projectnum">{{attachment}}</view>
+    <image src="../../../images/more.png"></image>
+  </view>
+  <view class="add-image">
+    <view class="add-image-title">已上传</view>
+    <view class="imglist" wx:for="{{attachmentList}}" wx:for-item="image" wx:key="{{index}}">
+      <image wx:if="{{image.Ext=='.jpg'||image.Ext=='.png'}}" class="weui-uploader__img" src="https://wx.demo.cneefix.com{{image.Path}}" data-path="https://wx.demo.cneefix.com{{image.Path}}" bindtap="previewcontentImage"></image>
+      <text wx:else>{{image.Title}}</text>
+      <view bindtap="deleteimgcontenttap" data-index="{{index}}" data-imageid="{{image.Id}}" class="delete-img">
+        <image src="../../../images/deleteicon.png"></image>
+      </view>
+    </view>
+  </view>
+  <template is="chooseImg" data="{{chooseImage,imageList,image,previewImage,deleteimgtap,imgtitle:'图片'}}" />
+  <view class="submitlist">
+    <button disabled="{{disabled}}" bindtap="submittap" class="save">保存</button>
+  </view>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

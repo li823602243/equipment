@@ -1,0 +1,5 @@
+/* junfeipage/working/proacceptance/proacceptance.wxss */
+.projectstatus{
+    top:45%;
+
+}

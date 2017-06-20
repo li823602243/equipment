@@ -1,0 +1,65 @@
+/* junfeipage/working/mtview/mtview.wxss */
+.container{
+  font-size: 15px;
+}
+
+.list-item{
+  background: #fff;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.list-cell-item{
+  
+}
+
+.list-item-hook{
+  padding: 0 5%;
+  margin: 5px 0;
+}
+
+.list-item-hook label{
+   width: 25%;
+   display: inline-block;
+   vertical-align: top;
+   color: #468ceb;
+}
+
+.list-item-hook text{
+  display: inline-block;
+  width: 75%;
+  vertical-align: top;
+  word-wrap:break-word;
+}
+
+.waring{
+  color:#ea9d3b;
+}
+
+.list-item-btn{
+  border-top:1px solid #eee;
+}
+
+.list-item-btn view{
+  display: inline-block;
+  width: 65px;
+  height: 24px;
+  border:1px solid #468ceb;
+  border-radius:10px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 24px;
+  float:right;
+  margin: 8px 10px;
+  color: #468ceb;
+}
+
+.icon-btn{
+  border:1px solid #ea9d3b!important;
+  color:#ea9d3b!important;
+}
+
+.icon-del{
+  border:1px solid red!important;
+  color:red!important;
+}

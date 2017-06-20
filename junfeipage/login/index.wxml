@@ -1,0 +1,32 @@
+<import src="../../common/wetoast/wetoast.wxml"/>
+ 
+<!--junfeipage/login/index.wxml-->
+<view class="container">
+  <view class="weui-loadmore" wx:if="{{startuploading}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">加载中...</view>
+  </view>
+  <block wx:else >
+    <image class="login-logo" src="../../images/logo.png"></image>
+  <view class="login-container">  
+    <view class="login-title">
+      <text class="login-h">登 录</text>
+      <text class="login-eg">Sign in</text>
+    </view>
+    <view class="login-content">
+      <view class="login-input">
+        <image src="../../images/login_user.png"></image>
+        <input value="{{username}}" bindinput="bindusername" placeholder="用户名" />
+      </view> 
+      <view class="login-input">
+        <image src="../../images/login_password.png"></image>
+        <input value="{{password}}" bindinput="bindpassword" type="text" password placeholder="密码" />
+      </view>
+
+      <view bindtap="logintap" class="login-btn">登录</view>
+    </view>
+
+  </view>
+  </block>
+</view>
+   <template is="wetoast" data="{{... __wetoast__}}"/>

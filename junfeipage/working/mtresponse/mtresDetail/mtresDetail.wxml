@@ -1,0 +1,85 @@
+
+<!--维修响应详情页-->
+<import src="../../../../common/wetoast/wetoast.wxml" />
+<view class="content">
+  <view class="mtres-detail">
+    <view class="mtres-detail-list">
+      <view class="mtres-list-item">
+        <view class="mtres-list-item-hook">
+          <text>报修信息</text>
+        </view>
+        <view class="mtres-list-item-bd">
+          <view class="mt-list-items">
+            <view class="mt-list-item">
+              <label>设备编码</label>
+              <text>{{list.AssetCode}}</text>
+            </view>
+            <view class="mt-list-item">
+              <label>设备名称</label>
+              <text>{{list.DeviceCodeName}}</text>
+            </view>
+            <view class="mt-list-item">
+              <label>设备品牌</label>
+              <text>{{list.Brand}}</text>
+            </view>
+            <view class="mt-list-item">
+              <label>设备型号</label>
+              <text>{{list.Model}}</text>
+            </view>
+            <view class="mt-list-item">
+              <label>设备地点</label>
+              <text>{{list.FullAddress}}</text>
+            </view>
+          </view>
+          <view class="mt-list-items">
+            <view class="mt-list-item">
+              <label>报修单位</label>
+              <text>{{list.SchoolName}}</text>
+            </view>
+            <view class="mt-list-item">
+              <label>报修人</label>
+              <text>{{list.Name}}</text>
+            </view>
+            <view class="mt-list-item" wx:if="{{list.NeedMobile==null}}">
+              <label>联系电话</label>
+              <text></text>
+            </view>
+             <view class="mt-list-item" wx:if="{{list.NeedMobile!=null}}">
+              <label>联系电话</label>
+              <text>{{list.NeedMobile}}</text>
+            </view>
+          </view>
+          <view class="mt-list-items" wx:if="{{unitid==4}}">
+            <view class="mt-list-item">
+              <label>报修时间</label>
+              <text>{{list.RegTime}}</text>
+            </view>
+            <view class="mt-list-item">
+              <label>是否过保</label>
+              <text>{{zhibao}}</text>
+            </view>
+          </view>
+          <view class="mt-list-items">
+            <view class="mt-list-item">
+              <label>故障现象</label>
+              <text>{{list.Fault}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="btn-group">
+    <form report-submit bindsubmit="formSubmit">
+      <button formType="submit" class="mt-btn">
+        报修响应
+      </button>
+    </form>
+    <form report-submit bindsubmit="undoBack">
+      <button formType="submit" class="mt-btn" wx:if="{{unitid==4}}">
+        报修退回
+      </button>
+    </form>
+  </view>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

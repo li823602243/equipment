@@ -1,0 +1,106 @@
+
+<!--junfeipage/working/projectrec/projectrecdlist/projectrecdlist.wxml-->
+<view class="content">
+  <view class="content-wrapper">
+    <view class="content-main">
+      <view class="common-cell">
+        <view data-idx="0" class="common-cell-hd" bindtap="toggle">
+          <text>项目信息</text>
+          <image src="{{show[0]?'../../../../images/downtip.png':'../../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[0]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>项目名称</label>
+              <text>{{list.ProjectName}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>项目编号:</label>
+              <text>{{list.ProjectCode}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>施工单位:</label>
+              <text>{{list.CompanyName}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>学校名称:</label>
+              <text>{{list.SchoolName}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="common-cell">
+        <view data-idx="1" class="common-cell-hd" bindtap="toggle">
+          <text>项目整改通知书</text>
+          <image src="{{show[1]?'../../../../images/downtip.png':'../../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[1]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>发起人:</label>
+              <text>{{list.ReformName}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>发起时间:</label>
+              <text>{{list.RegTime}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>整改事项:</label>
+              <text>{{list.Matter}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>整改要求:</label>
+              <text>{{list.Require}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>附件</label>
+              <view class="imglist" wx:for="{{imgpath}}" wx:for-item="image" wx:key="{{index}}">
+                <image wx:if="{{image.Ext=='.jpg'||image.Ext=='.png'}}" class="weui-uploader__img" src="https://wx.demo.cneefix.com{{image.Path}}" data-path="https://wx.demo.cneefix.com{{image.Path}}" bindtap="previewimgpath"></image>
+                  <text wx:else>{{image.Title}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{statuz!='等待处理'}}" class="common-cell">
+        <view data-idx="2" class="common-cell-hd" bindtap="toggle">
+          <text>项目整改反馈书</text>
+          <image src="{{show[2]?'../../../../images/downtip.png':'../../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[2]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>整改反馈:</label>
+              <text>{{list.Feedback}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>附件</label>
+              <view class="imglist" wx:for="{{backimgpath}}" wx:for-item="image" wx:key="{{index}}">
+                <image wx:if="{{image.Ext=='.jpg'||image.Ext=='.png'}}" class="weui-uploader__img" src="https://wx.demo.cneefix.com{{image.Path}}" data-path="https://wx.demo.cneefix.com{{image.Path}}" bindtap="previewbackimgpath"></image>
+                <text wx:else>{{image.Title}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{statuz=='整改通过'||statuz=='整改不通过'}}" class="common-cell">
+        <view data-idx="3" class="common-cell-hd" bindtap="toggle">
+          <text>项目整改确认书</text>
+          <image src="{{show[3]?'../../../../images/downtip.png':'../../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[3]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>确认意见:</label>
+              <text>{{list.Result}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>确认结果:</label>
+              <text>{{list.Statuz}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

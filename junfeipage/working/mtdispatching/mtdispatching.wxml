@@ -1,0 +1,40 @@
+
+<!--junfeipage/working/mtdispatching/mtdispatching.wxml-->
+<import src="../../../common/wetoast/wetoast.wxml" />
+
+<!--维修派工页面-->
+<view class="container">
+  <view class="nodata" wx:if="{{hasnodata}}">暂无数据</view>
+  <view wx:else>
+    <block wx:for="{{list}}">
+      <view class="common-cell" data-id="{{item.Id}}" bindtap="gotoDetail">
+        <view class="common-cell-item">
+          <label>设备名称</label>
+          <text>{{item.DeviceCodeName}}</text>
+        </view>
+        <view class="common-cell-item">
+          <label>报修单位</label>
+          <text>{{item.SchoolName}}</text>
+        </view>
+        <view class="common-cell-item">
+          <label>报修时间</label>
+          <text>{{item.RegTime}}</text>
+        </view>
+        <view class="common-cell-item">
+          <label>状态</label>
+          <text class="waring">待派工</text>
+        </view>
+      </view>
+    </block>
+    <view hidden="{{hidden}}">
+      <view class="preloader" wx:if="{{hasMore}}">
+        <icon type="waiting" size="25" />
+        <text>玩命的加载中...</text>
+      </view>
+      <view class="preloader" wx:else>
+        <text>没有更多内容了</text>
+      </view>
+    </view>
+  </view>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

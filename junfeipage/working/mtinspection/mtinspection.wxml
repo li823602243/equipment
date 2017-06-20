@@ -1,0 +1,44 @@
+
+<!--junfeipage/working/mtinspection/mtinspection.wxml-->
+
+<!--维修验收页面-->
+<import src="../../../common/wetoast/wetoast.wxml" />
+<view class="" container>
+  <view class="nodata" wx:if="{{hasnodata}}">暂无数据</view>
+  <view wx:else>
+    <block wx:for="{{list}}">
+      <view class="common-cell" data-statuz="{{item.Statuz}}" data-id="{{item.Id}}" bindtap="gotoDetail">
+        <view class="common-cell-item">
+          <label>设备名称</label>
+          <text>{{item.DeviceCodeName}}</text>
+        </view>
+        <view class="common-cell-item">
+          <label>报修时间</label>
+          <text>{{item.RegTime}}</text>
+        </view>
+        <view class="common-cell-item">
+          <label>完成时间</label>
+          <text>{{item.CompleteTime}}</text>
+        </view>
+        <view class="common-cell-item">
+          <label>维修单位</label>
+          <text>{{item.CompanyName}}</text>
+        </view>
+        <view class="common-cell-item">
+          <label>状态</label>
+          <text class="waring">{{item.Statuz}}</text>
+        </view>
+      </view>
+    </block>
+    <view hidden="{{hidden}}">
+      <view class="preloader" wx:if="{{hasMore}}">
+        <icon type="waiting" size="25" />
+        <text>玩命的加载中...</text>
+      </view>
+      <view class="preloader" wx:else>
+        <text>没有更多内容了</text>
+      </view>
+    </view>
+  </view>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

@@ -1,0 +1,37 @@
+
+<!--junfeipage/working/proacceptance/proacceptance.wxml-->
+<import src="../../../common/wetoast/wetoast.wxml" />
+<view class="container">
+  <view class="preloader" wx:if="{{hasnodata}}">
+    暂无数据
+  </view>
+  <block wx:else>
+    <view wx:for="{{proacceptlist}}" wx:key="{{index}}" class="projectcells" data-projectid="{{item.ProjectId}}" data-pritemid="{{item.ProjectItemId}}" bindtap="proaccepttap">
+      <view class="projectcell">
+        <label>项目编号</label>
+        <text>{{item.ProjectCode}}</text>
+      </view>
+      <view class="projectcell">
+        <label>项目名称</label>
+        <text>{{item.ProjectName}}</text>
+      </view>
+      <view class="projectcell">
+        <label>项目工期</label>
+        <text>{{item.Duration}}天</text>
+      </view>
+      <view class="projectstatus">
+        等待验收
+      </view>
+    </view>
+    <view hidden="{{hidden}}">
+      <view class="preloader" wx:if="{{hasMore}}">
+        <icon type="waiting" size="25" />
+        <text>玩命的加载中...</text>
+      </view>
+      <view class="preloader" wx:else>
+        <text>没有更多内容了</text>
+      </view>
+    </view>
+  </block>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

@@ -1,0 +1,586 @@
+@import "common/wetoast/wetoast.wxss";
+@import "common/lib/weui.wxss";
+
+/* reset */
+
+.hasno {
+  text-align: center;
+}
+
+page {
+  background-color: #f8f8f8;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 1.6;
+}
+
+checkbox, radio {
+  margin-right: 10rpx;
+}
+
+button {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+form {
+  width: 100%;
+}
+
+/* lib */
+
+.strong {
+  font-weight: bold;
+}
+
+.tc {
+  text-align: center;
+}
+
+/* page */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 32rpx;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+}
+
+/*搜索样式*/
+
+.weui-search-bar {
+  background: #fff;
+}
+
+.weui-icon-search {
+  margin-top: 3px;
+}
+
+.weui-search-bar__text {
+  vertical-align: top;
+  color: #fff;
+}
+
+.weui-search-bar__label {
+  background: #468ceb;
+}
+
+.searchcolor {
+  color: #fff;
+}
+
+/*选择编号组件*/
+
+.project-header {
+  margin-bottom: 30rpx;
+}
+
+.project-item {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  padding: 15px 0;
+}
+
+.project-item input {
+  display: inline-block;
+  vertical-align: middle;
+  width: 60%;
+}
+
+.project-item text {
+  width: 25%;
+  display: inline-block;
+  margin-left: 5%;
+  vertical-align: middle;
+}
+
+.projectnum {
+  width: 60%;
+  display: inline-block;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.choosedate {
+  display: inline-block;
+}
+
+.project-item image {
+  width: 50rpx;
+  height: 50rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.add-image {
+  background: #fff;
+  position: relative;
+  width: 100%;
+}
+
+.add-image-title {
+  margin: 35rpx;
+}
+
+.chooseImage {
+  position: absolute;
+  right: 25rpx;
+  top: 30rpx;
+}
+
+.chooseImage image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+/*保存提交按钮*/
+
+.submitlist {
+  width: 90%;
+  margin: 60rpx auto;
+}
+
+.submitlist view {
+  padding: 25rpx 0;
+  text-align: center;
+  color: #fff;
+  border-radius: 10rpx;
+}
+
+.save {
+  background: #468ceb;
+  margin-bottom: 20rpx;
+}
+
+.unbind {
+  background: #eb4646;
+}
+
+/*textarea区域*/
+
+.project-textarea {
+  background: #fff;
+  margin-bottom: 30rpx;
+  width: 100%;
+  height: 240rpx;
+}
+
+.project-textarea label {
+  padding-left: 30rpx;
+}
+
+.project-textarea textarea {
+  height: 200rpx;
+  padding-left: 30rpx;
+}
+
+.project-textarea view {
+  padding-left: 30rpx;
+}
+
+/*整改，概况列表*/
+
+.projectcells {
+  margin-bottom: 30rpx;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #eee;
+  font-size: 15px;
+  position: relative;
+}
+
+.projectcell {
+  margin: 5px auto;
+  width: 95%;
+}
+
+.projectcells label {
+  display: inline-block;
+  width: 25%;
+  color: #468ceb;
+}
+
+.projectcells view text {
+  display: inline-block;
+  vertical-align: top;
+  width: 75%;
+}
+
+.projectstatus {
+  position: absolute;
+  right: 5px;
+  bottom: 25%;
+  color: #ea9d3b;
+}
+
+.projectrecbtn {
+  width: 90%;
+  background: #dae8fb;
+  padding: 5px;
+  margin: 15px auto;
+  text-align: center;
+  color: #468ceb;
+  border: 1px solid #468ceb;
+  border-radius: 5px;
+}
+
+/*维护维修*/
+
+.mtcells {
+  margin: 0 0 10px 0;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 0 10px;
+  font-size: 15px;
+  position: relative;
+  overflow: hidden;
+  z-index: 800;
+}
+
+.mtcell {
+  margin: 5px 0;
+}
+
+.mtcell label {
+  width: 25%;
+  display: inline-block;
+  color: #468ceb;
+  vertical-align: top;
+}
+
+.mtcell text {
+  width: 65%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.mtcells .resstatus {
+  position: absolute;
+  bottom: 5px;
+  right: 20px;
+}
+
+.mtcells .resstatus.ok {
+  color: #468ceb;
+}
+
+.mtcells .resstatus.err {
+  color: rgb(240, 20, 20);
+}
+
+.mtcells .resstatus.waring {
+  color: orange;
+}
+
+/*项目验收评价*/
+
+.accept-result {
+  padding: 10px 25px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.accept-result text {
+  margin-right: 15px;
+}
+
+.accept-result .radio-group {
+  display: inline-block;
+}
+
+.evaluatelist {
+  background: #fff;
+}
+
+.evaluatelist label {
+  font-size: 34rpx;
+  margin-left: 15px;
+  font-weight: bolder;
+}
+
+.evaluate-item {
+  width: 100%;
+  padding: 5px 25px;
+}
+
+.evaluate-item text {
+  display: inline-block;
+  width: 20%;
+}
+
+.evaluate-item view {
+  display: inline-block;
+  width: 60%;
+  vertical-align: middle;
+}
+
+.tips {
+  text-align: center;
+  width: 80%;
+  margin: 15px auto;
+}
+
+.submit {
+  text-align: center;
+  color: #fff;
+  line-height: 35px;
+  background: #468ceb;
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  font-size: 16px;
+}
+
+/*维护维修重构*/
+
+.common-cell {
+  margin-bottom: 30rpx;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #eee;
+  font-size: 15px;
+  position: relative;
+}
+
+.common-cell-item {
+  margin: 5px 0px 5px 10px;
+}
+
+.common-cell-item label {
+  display: inline-block;
+  width: 25%;
+  color: #468ceb;
+  vertical-align: top;
+}
+
+.common-cell-item text {
+  display: inline-block;
+  width: 70%;
+  vertical-align: top;
+}
+
+.common-cell .statuz {
+  position: absolute;
+  right: 5px;
+  bottom: 65px;
+  top: 50%;
+}
+
+.common-cell .statuz.waring {
+  color: #ea9d3b;
+}
+
+.preloader {
+  text-align: center;
+  color: #bebebe;
+}
+
+/*选择图片的样式*/
+
+.weui-uploader__files {
+  width: 90%;
+  margin: 20rpx auto;
+}
+
+.weui-uploader__file {
+  position: relative;
+}
+
+.weui-uploader__img {
+  display: block;
+  width: 45px;
+  height: 45px;
+}
+
+.weui-uploader__img image {
+  border-radius: 10rpx;
+}
+
+.delete-img {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  z-index: 999;
+}
+
+.delete-img image {
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.nodata {
+  font-size: 26px;
+  margin: auto;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/*操作按钮*/
+.operate {
+  border-top: 1px solid #eee;
+  padding: 10px;
+}
+
+.operate view {
+  float: right;
+  border: 1px solid #468ceb;
+  margin-left: 10px;
+  padding: 0 10px;
+  border-radius: 10px;
+  color: #468ceb;
+}
+.imglist {
+  position: relative;
+  display: inline-block;
+  padding: 0 5px;
+}
+
+.imglist text {
+  display: block;
+  width: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #468ceb;
+  border: 1px solid #eee;
+}
+/*流程图*/
+.bd-item-info{
+  margin: 10px 0;
+  overflow: hidden;
+  font-size: 0;
+}
+
+.bd-item-info .info-item{
+  width: 25%;
+  float: left;
+  text-align: center;
+  position: relative;
+  margin-bottom: 30px;
+  min-height: 80px;
+}
+
+.bd-item-info .info-item:nth-child(5),.bd-item-info .info-item:nth-child(6),.bd-item-info .info-item:nth-child(7){
+    float: right;
+}
+
+.info-item image{
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 5px auto;
+  border:2px solid #e5e5e5;
+  border-radius: 50%;
+  position: relative;
+}
+
+.info-item:nth-child(1)::after,.info-item:nth-child(2)::after,.info-item:nth-child(3)::after,.info-item:nth-child(9)::after,.info-item:nth-child(10)::after,.info-item:nth-child(11)::after{
+   display: block;
+   content: '';
+   width: 30px;
+   height: 6px;
+   position: absolute;
+   left:75%;
+   top: 17px;
+   background: #B5B5B5;
+}
+
+.info-item:nth-child(1) .name::after,.info-item:nth-child(2) .name::after,.info-item:nth-child(3) .name::after,.info-item:nth-child(9) .name::after,.info-item:nth-child(10) .name::after,.info-item:nth-child(11) .name::after{
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-left: 16px solid #B5B5B5;
+  border-bottom: 8px solid transparent;
+  position: absolute;
+  top: 12px;
+  left: 102%;
+}
+
+.info-item:nth-child(5) .name::after,.info-item:nth-child(6) .name::after,.info-item:nth-child(7) .name::after{
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-right: 16px solid #B5B5B5;
+  border-bottom: 8px solid transparent;
+  position: absolute;
+  top: 12px;
+  right: 102%;
+}
+
+.info-item:nth-child(4n) .name::after{
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-top: 16px solid #B5B5B5;
+  border-right: 8px solid transparent;
+  position: absolute;
+  bottom:-35px;
+  left:50%;
+  margin-left:-8px;
+}
+
+.info-item:nth-child(4n)::after{
+  display: block;
+  content: '';
+  width: 6px;
+  height: 30px;
+  position: absolute;
+  bottom:-30px;
+  left: 50%;
+  margin-left: -3px;
+  background: #B5B5B5;
+}
+
+.info-item text{
+  display: block;
+  font-size: 12px;
+  line-height: 14px;
+  margin-top: 6px;
+}
+
+.info-item:nth-child(5)::after,.info-item:nth-child(6)::after,.info-item:nth-child(7)::after{
+  display: block;
+   content: '';
+   width: 30px;
+   height: 6px;
+   position: absolute;
+   right:75%;
+   top: 17px;
+   background: #B5B5B5;
+}
+
+.info-item:last-child::after{
+  display: none
+}
+
+.info-item:last-child .name::after{
+   display: none
+}
+
+
+.common-cell-item .waring{
+  color:#ea9d3b;
+}

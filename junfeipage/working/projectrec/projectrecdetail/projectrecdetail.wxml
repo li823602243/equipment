@@ -1,0 +1,84 @@
+
+<!--整改反馈详情页面-->
+<import src="../../../../common/wetoast/wetoast.wxml" />
+<view class="container">
+  <view class="project-textarea">
+    <label>整改事项</label>
+    <view>{{prorecdetail.Matter}}</view>
+  </view>
+  <view class="add-image">
+    <view class="add-image-title">附件</view>
+    <view class="weui-uploader__files">
+      <block wx:for="{{imgpath}}">
+        <view class="weui-uploader__file">
+          <image wx:if="{{image.Ext=='.jpg'||image.Ext=='.png'}}" class="weui-uploader__img" src="https://wx.demo.cneefix.com{{item.Path}}" data-path="https://wx.demo.cneefix.com{{item.Path}}" bindtap="previewimgpath"></image>
+          <text wx:else>{{image.Title}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="project-textarea">
+    <label>整改要求</label>
+    <view>{{prorecdetail.Require}}</view>
+  </view>
+  <view wx:if="{{UnitTypeid==4}}" class="project-textarea">
+    <label>整改反馈</label>
+    <textarea bindinput="recContent" placeholder="填写整改反馈" />
+  </view>
+  <view wx:if="{{UnitTypeid==3}}" class="project-textarea">
+    <label>整改反馈</label>
+    <view>{{prorecdetail.Feedback}}</view>
+  </view>
+  <view wx:if="{{UnitTypeid==4}}" class="add-image">
+    <view class="add-image-title">附件</view>
+    <view class="chooseImage">
+      <image bindtap="chooseImage" src="../../../../images/work/chooseimg.png"></image>
+    </view>
+    <view class="weui-uploader__files">
+      <block wx:for="{{imageList}}" wx:key="{{index}}" wx:for-item="image">
+        <view class="weui-uploader__file">
+          <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+          <view bindtap="deleteimgtap" data-index="{{index}}" class="delete-img">
+            <image src="../../../../images/deleteicon.png"></image>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view wx:if="{{UnitTypeid!=4}}">
+    <view class="add-image-title">附件</view>
+    <view class="weui-uploader__files">
+      <block wx:for="{{backimgpath}}">
+        <view class="weui-uploader__file">
+          <image wx:if="{{image.Ext=='.jpg'||image.Ext=='.png'}}" class="weui-uploader__img" src="https://wx.demo.cneefix.com{{item.Path}}" data-path="https://wx.demo.cneefix.com{{item.Path}}" bindtap="previewbackimgpath"></image>
+          <text wx:else>{{image.Title}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view wx:if="{{UnitTypeid==3}}" class="accept-result">
+    <text>确认结果</text>
+    <radio-group name="radiogroup" class="radio-group" bindchange="radioChange">
+      <label class="radio">
+        <radio value="3" />通过
+      </label>
+      <label class="radio">
+        <radio value="4" />不通过
+      </label>
+    </radio-group>
+  </view>
+  <view wx:if="{{UnitTypeid==3}}" class="project-textarea">
+    <textarea bindinput="confirminput" placeholder="填写确认意见" />
+  </view>
+  <form wx:if="{{UnitTypeid==4}}" bindsubmit="submittap" report-submit>
+    <view class="submitlist">
+      <button class="save" formType="submit">提交</button>
+    </view>
+  </form>
+  <form wx:if="{{UnitTypeid==3}}" bindsubmit="schoolsubmittap" report-submit>
+    <view class="submitlist">
+      <button class="save" formType="submit">提交</button>
+    </view>
+  </form>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

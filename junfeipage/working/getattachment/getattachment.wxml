@@ -1,0 +1,20 @@
+
+<!--junfeipage/working/getattachment/getattachment.wxml-->
+<import src="../../../common/wetoast/wetoast.wxml" />
+<view class="weui-loadmore" wx:if="{{isloading}}">
+  <view class="weui-loading"></view>
+  <view class="weui-loadmore__tips">正在加载中...</view>
+</view>
+<view wx:else class="container">
+  <view class="weui-cells searchbar-result">
+    <block wx:for="{{wxSearchData}}" wx:key="{{index}}">
+      <view bindtap="prnumtap" data-attachment="{{item.Name}}" class="weui-cell" data-enname="{{item.EnName}}">
+        <view class="weui-cell__bd">
+          <view>{{item.Name}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<template is="wetoast" data="{{... __wetoast__}}" />

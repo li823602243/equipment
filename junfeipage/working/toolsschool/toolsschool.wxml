@@ -1,0 +1,36 @@
+
+<!--junfeipage/working/toolsschool/toolsschool.wxml-->
+<import src="../../../common/wetoast/wetoast.wxml" />
+<import src="../../../common/wxsearch.wxml" />
+<view class="container">
+  <template is="wxsearch" data="{{searchname:'学校编码,学校名称',inputVal,inputShowed,inputTyping,clearInput,showInput,hideInput,wxSearchBlur,searchconfirm}}" />
+  <view class="preloader" wx:if="{{hasnodata}}">暂无数据</view>
+  <view wx:for="{{wxSearchData}}" wx:key="{{index}}" class="projectcells">
+    <view class="projectcell">
+      <label>学校名称</label>
+      <text>{{item.Name}}</text>
+    </view>
+    <view class="projectcell">
+      <label>联系人</label>
+      <text>{{item.SchoolAdmin}}</text>
+    </view>
+    <view class="projectcell">
+      <label>联系电话</label>
+      <text>{{item.AdminMobile}}</text>
+    </view>
+    <view class="projectcell">
+      <label>地址</label>
+      <text>{{item.Address}}</text>
+    </view>
+  </view>
+  <view hidden="{{hidden}}">
+    <view class="preloader" wx:if="{{hasMore}}">
+      <icon type="waiting" size="25" />
+      <text>玩命的加载中...</text>
+    </view>
+    <view class="preloader" wx:else>
+      <text>没有更多内容了</text>
+    </view>
+  </view>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

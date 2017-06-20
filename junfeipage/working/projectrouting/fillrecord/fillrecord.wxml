@@ -1,0 +1,43 @@
+
+<!--junfeipage/working/projectrouting/fillrecord/fillrecord.wxml-->
+<import src="../../../../common/wetoast/wetoast.wxml" />
+<view class="container">
+
+  <!--<view class="project-item">
+    <text>巡检时间</text>
+    <view class="projectnum">{{date}}</view>
+    <picker class="choosedate" mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+      <image src="../../../../images/more.png"></image>
+    </picker>
+  </view>-->
+  <view class="project-textarea">
+    <label>巡检事项</label>
+    <textarea bindinput="routmatter" name="prTextarea" placeholder="填写巡检事项" />
+  </view>
+  <view class="project-textarea">
+    <label>巡检记录</label>
+    <textarea bindinput="routrecord" name="prTextarea" placeholder="填写巡检记录" />
+  </view>
+  <view class="add-image">
+    <view class="add-image-title">附件</view>
+    <view class="chooseImage">
+      <image bindtap="chooseImage" src="../../../../images/work/chooseimg.png"></image>
+    </view>
+    <view class="weui-uploader__files">
+      <block wx:for="{{imageList}}" wx:for-item="image">
+        <view class="weui-uploader__file">
+          <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+          <view bindtap="deleteimgtap" data-index="{{index}}" class="delete-img">
+            <image src="../../../../images/deleteicon.png"></image>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <form bindsubmit="submittap" report-submit>
+    <view class="submitlist">
+      <button class="save" formType="submit">提交</button>
+    </view>
+  </form>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

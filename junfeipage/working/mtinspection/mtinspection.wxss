@@ -1,0 +1,11 @@
+/* junfeipage/working/mtinspection/mtinspection.wxss */
+.inspaction{
+    position: absolute;
+    right:10px;
+    bottom:25px;
+}
+
+.inspaction.waring {
+  color: orange;
+}
+

@@ -1,0 +1,74 @@
+/* junfeipage/login/index.wxss */
+
+page {
+  background: #468ceb;
+}
+
+.login-container {
+  background: #fff;
+  width: 85%;
+  margin: 10% auto 0 auto;
+  border-radius: 20rpx;
+  box-shadow: 20px 34.641px 40px 0px rgba(0, 44, 113, 0.27);
+}
+
+.login-title {
+  text-align: center;
+  background: #eaf3ff;
+  padding: 10rpx 0;
+  border-radius: 20rpx 20rpx 0 0;
+}
+
+.login-title text {
+  display: block;
+  color: #468ceb;
+  font-family: "";
+}
+
+.login-h {
+  letter-spacing: 5rpx;
+}
+
+.login-eg {
+  font-size: 28rpx;
+}
+
+.login-content {
+  margin: 50rpx auto;
+  width: 80%;
+}
+
+.login-input {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 30rpx;
+}
+
+.login-input input {
+  display: inline-block;
+  margin-left: 30rpx;
+  vertical-align: top;
+  width: 70%;
+}
+
+.login-input image {
+  width: 45rpx;
+  height: 50rpx;
+}
+
+.login-btn {
+  background: #eaf3ff;
+  padding: 20rpx;
+  border: 1px solid #468ceb;
+  color: #468ceb;
+  margin-top: 70rpx;
+  border-radius: 10rpx;
+  text-align: center;
+}
+
+.login-logo {
+  width: 180px;
+  height: 78px;
+  margin:20% auto 10px auto;
+
+}

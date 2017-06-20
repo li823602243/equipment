@@ -1,0 +1,52 @@
+
+<!--项目整改页面-->
+<import src="../../../common/wetoast/wetoast.wxml" />
+<import src="../../../common/wxsearch.wxml" />
+<view class="container">
+  <view bindtap="creatprorecTap" hidden="{{UnitTypeid==4}}" class="creatprorec">创建项目整改</view>
+  <view class="preloader" wx:if="{{hasnodata}}">暂无数据</view>
+  <block wx:else>
+    <view bindtap="projectrecdlistTap" wx:for="{{projectrecList}}" wx:key="{{index}}" class="projectcells" data-recid="{{item.Id}}" data-statuz="{{item.Statuz}}">
+      <view class="projectcell">
+        <label>项目编号</label>
+        <text>{{item.ProjectCode}}</text>
+      </view>
+      <view class="projectcell">
+        <label>项目名称</label>
+        <text>{{item.ProjectName}}</text>
+      </view>
+      <view class="projectcell">
+        <label>学校名称</label>
+        <text>{{item.SchoolName}}</text>
+      </view>
+      <view class="projectcell">
+        <label>发起人</label>
+        <text>{{item.CreateUnitType}}</text>
+      </view>
+      <view class="projectcell">
+        <label>状态</label>
+        <text style="color: #ea9d3b;">{{item.Statuz}}</text>
+      </view>
+      <view class="projectcell">
+        <label>发起时间</label>
+        <text>{{item.RegTime}}</text>
+      </view>
+      <view wx:if="{{UnitTypeid==4&&item.Statuz=='等待处理'}}" class="operate clearfix">
+        <view class="fillrecord" catchtap="projectrectap" data-recid="{{item.Id}}">整改反馈</view>
+      </view>
+      <view wx:if="{{UnitTypeid==3&&item.Statuz=='等待确认'}}" class="operate clearfix">
+        <view class="fillrecord" catchtap="projectrectap" data-recid="{{item.Id}}">整改确认</view>
+      </view>
+    </view>
+    <view hidden="{{hidden}}">
+      <view class="preloader" wx:if="{{hasMore}}">
+        <icon type="waiting" size="25" />
+        <text>玩命的加载中...</text>
+      </view>
+      <view class="preloader" wx:else>
+        <text>没有更多内容了</text>
+      </view>
+    </view>
+  </block>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

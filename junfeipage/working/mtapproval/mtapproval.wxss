@@ -1,0 +1,72 @@
+/* junfeipage/working/mtapproval/mtapproval.wxss *//* junfeipage/working/Equipinfo/Equipinfo.wxss */
+.equ-list-item{
+    margin: 5px 0;
+    background: #fff;
+}
+.equlist-item-hd{
+    line-height: 35px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.equlist-item-hd label{
+    display: inline-block;
+    font-size: 16px;
+    color: #468ceb;
+    padding-left: 15px;
+}
+
+.equlist-item-hd image{
+    width: 24px;
+    height:24px;
+    display: inline-block;
+    float: right;
+    margin-right: 15px;
+    margin-top: 4px;
+}
+
+.equ-item-hook{
+    margin:0 15px;
+    border-bottom:1px solid #eee;
+    padding:4px 0;
+
+}
+
+.equ-item-hook:last-child{
+    border-bottom: none;
+}
+
+.equ-item-hook label{
+    width:25%;
+    display:inline-block;
+    margin-right:10%;
+    vertical-align:middle;
+
+}
+
+.equ-item-hook text{
+    width:65%;
+    text-align:right;
+    display:inline-block;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    vertical-align:middle;
+}
+
+.equlist-item-bd{
+    height:0;
+    overflow: hidden;
+}
+
+.equlist-item-bd-show{
+    height:auto;
+}
+
+.repair{
+    background: #468ceb;
+    text-align: center;
+    color: #fff;
+    line-height: 35px;
+    font-size: 18px;
+}

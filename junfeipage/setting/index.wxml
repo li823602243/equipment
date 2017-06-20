@@ -1,0 +1,10 @@
+
+<!--junfeipage/setting/index.wxml-->
+<view class="container">
+  <navigator  url="../../junfeipage/setting/accountmag/accountmag">
+    <view class="setting-item">
+      <text>账号管理</text>
+      <image src="../../images/more.png"></image>
+    </view>
+  </navigator>
+</view>

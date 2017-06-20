@@ -1,0 +1,25 @@
+
+<!--junfeipage/working/getprojectsection/getprojectsection.wxml-->
+<import src="../../../common/wetoast/wetoast.wxml" />
+<view class="weui-loadmore" wx:if="{{isloading}}">
+  <view class="weui-loading"></view>
+  <view class="weui-loadmore__tips">正在加载中...</view>
+</view>
+<view wx:else class="container">
+  <view class="weui-cells searchbar-result">
+    <block wx:for="{{wxSearchData}}" wx:key="{{index}}">
+      <view bindtap="prnumtap" data-dicname="{{item.DicName}}" data-dicvalue="{{item.DicValue}}" class="weui-cell">
+        <view class="weui-cell__bd">
+          <view>{{item.DicName}}</view>
+        </view>
+      </view>
+    </block>
+    <view bindtap="otherprnum" class="weui-cell">
+      <view class="weui-cell__bd">
+        <view>其他</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<template is="wetoast" data="{{... __wetoast__}}" />

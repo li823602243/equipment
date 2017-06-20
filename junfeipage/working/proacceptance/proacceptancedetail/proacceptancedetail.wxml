@@ -1,0 +1,251 @@
+
+<!--junfeipage/working/proacceptance/proacceptancedetail/proacceptancedetail.wxml-->
+<import src="../../../../common/wetoast/wetoast.wxml" />
+<view class="container">
+  <form bindsubmit="formSubmit" report-submit>
+    <view class="accept-result">
+      <text>验收结果</text>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{items}}" wx:key="{{index}}">
+          <radio value="{{item.name}}" />{{item.value}}
+        </label>
+      </radio-group>
+      <view wx:if="{{Statuz==41}}" class="acceptnopass">
+        <textarea name="Comment" placeholder="请填写不通过原因" />
+      </view>
+    </view>
+    <view class="evaluatelist">
+      <label>项目评价</label>
+      <view class="evaluate-item">
+        <text>设备质量</text>
+        <view>
+          <block wx:for="{{startlist}}" wx:key="{{index}}">
+            <image bindtap="startlist1" data-key="{{item+1}}" src="{{key1>item?startselectedsrc:startsrc}}"></image>
+          </block>
+        </view>
+      </view>
+      <view class="evaluate-item">
+        <text>施工质量</text>
+        <view>
+          <block wx:for="{{startlist}}" wx:key="{{index}}">
+            <image bindtap="startlist2" data-key="{{item+1}}" src="{{key2>item?startselectedsrc:startsrc}}"></image>
+          </block>
+        </view>
+      </view>
+      <view class="evaluate-item">
+        <text>服务质量</text>
+        <view>
+          <block wx:for="{{startlist}}" wx:key="{{index}}">
+            <image bindtap="startlist3" data-key="{{item+1}}" src="{{key3>item?startselectedsrc:startsrc}}"></image>
+          </block>
+        </view>
+      </view>
+      <view class="evaluate-item">
+        <text>工期保障</text>
+        <view>
+          <block wx:for="{{startlist}}" wx:key="{{index}}">
+            <image bindtap="startlist4" data-key="{{item+1}}" src="{{key4>item?startselectedsrc:startsrc}}"></image>
+          </block>
+        </view>
+      </view>
+      <view class="evaluate-item">
+        <text>用户培训</text>
+        <view>
+          <block wx:for="{{startlist}}" wx:key="{{index}}">
+            <image bindtap="startlist5" data-key="{{item+1}}" src="{{key5>item?startselectedsrc:startsrc}}"></image>
+          </block>
+        </view>
+      </view>
+      <view class="evaluate-item">
+        <text>文明施工</text>
+        <view>
+          <block wx:for="{{startlist}}" wx:key="{{index}}">
+            <image bindtap="startlist6" data-key="{{item+1}}" src="{{key6>item?startselectedsrc:startsrc}}"></image>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view class="tips">项目信息请在项目监管中查看</view>
+    <view class="submitlist">
+      <button class="save" formType="submit">提交</button>
+    </view>
+  </form>
+  <view class="content-wrapper">
+    <view class="content-main">
+      <view class="common-cell">
+        <view data-idx="0" class="common-cell-hd" bindtap="toggle">
+          <text>商务信息</text>
+          <image src="{{show[0]?'../../../../images/downtip.png':'../../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[0]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>中标日期</label>
+              <text>{{list.BidDate}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>合同签订日期</label>
+              <text>{{list.ContractDate}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>合同金额(元)</label>
+              <text>{{list.ContractAmount}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>变更金额(元)</label>
+              <text>{{list.ContractAmountExt}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>结算金额(元)</label>
+              <text>{{list.SettleAmount}}</text>
+            </view>
+          </view>
+          <view class="common-bd-item">
+            <view wx:for="{{tenderList}}" class="bd-item-hook">
+              <label>{{item.Name}}</label>
+              <view class="imglist" wx:for="{{item.PathList}}" wx:for-item="image" wx:key="{{index}}">
+                <image wx:if="{{image.Ext=='.jpg'||image.Ext=='.png'}}" class="weui-uploader__img" src="https://wx.demo.cneefix.com{{image.Path}}" data-src="https://wx.demo.cneefix.com{{image.Path}}" bindtap="previewtenderImage"></image>
+                <text wx:else>{{image.Title}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="common-cell">
+        <view data-idx="1" class="common-cell-hd" bindtap="toggle">
+          <text>项目进度</text>
+          <image src="{{show[1]?'../../../../images/downtip.png':'../../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[1]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>项目工期</label>
+              <view class="bd-item-right">
+                <text>{{list.Duration}}天</text>
+                <text wx:if="{{overdate}}">距工期{{list.SurplusDayNum}}天</text>
+                <text style="color:#ff004f;" wx:else> 已超期{{list.overdata}}天</text>
+              </view>
+            </view>
+          </view>
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>项目进度图</label>
+              <view class="bd-item-info">
+                <view class="info-item {{item.IsSelect==1 ? 'active' : ''}}" wx:for="{{itemfulfilment}}">
+                  <image src="{{item.IsSelect==1?'../../../../images/okactive.png':'../../../../images/ok.png'}}"></image>
+                  <text class="name">{{item.Name}}</text>
+                  <text>{{item.SectionDate}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="common-cell">
+        <view data-idx="2" class="common-cell-hd" bindtap="toggle">
+          <text>过程材料</text>
+          <image src="{{show[2]?'../../../../images/downtip.png':'../../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[2]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view wx:for="{{attachmentList}}" class="bd-item-hook">
+              <label>{{item.Name}}</label>
+              <view class="imglist" wx:for="{{item.PathList}}" wx:for-item="image" wx:key="{{index}}">
+                <image wx:if="{{image.Ext=='.jpg'||image.Ext=='.png'}}" class="weui-uploader__img" src="https://wx.demo.cneefix.com{{image.Path}}" data-src="https://wx.demo.cneefix.com{{image.Path}}" bindtap="previewImage"></image>
+                <text wx:else>{{image.Title}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="common-cell">
+        <view data-idx="3" class="common-cell-hd" bindtap="toggle">
+          <text>结算材料</text>
+          <image src="{{show[3]?'../../../../images/downtip.png':'../../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[3]?'common-bd-show':''}}">
+          <view class="preloader" wx:if="{{hasnofile}}">暂无结算材料</view>
+          <block wx:else>
+            <view class="common-bd-item">
+              <view wx:for="{{settleList}}" class="bd-item-hook">
+                <label>{{item.Name}}</label>
+                <view class="imglist" wx:for="{{item.PathList}}" wx:for-item="image" wx:key="{{index}}">
+                  <image wx:if="{{image.Ext=='.jpg'||image.Ext=='.png'}}" class="weui-uploader__img" src="https://wx.demo.cneefix.com{{image.Path}}" data-src="https://wx.demo.cneefix.com{{image.Path}}" bindtap="previewsettleImage"></image>
+                  <text wx:else>{{image.Title}}</text>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class="common-cell">
+        <view data-idx="4" class="common-cell-hd" bindtap="toggle">
+          <text>巡检记录</text>
+          <image src="{{show[4]?'../../../../images/downtip.png':'../../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[4]?'common-bd-show':''}}">
+          <view class="preloader" wx:if="{{hasnodata}}">暂无记录</view>
+          <block wx:else>
+            <view wx:for="{{rountlist}}" class="common-bd-item">
+              <view class="bd-item-hook">
+                <label>巡检记录</label>
+                <text>{{item.Matter}}</text>
+              </view>
+              <view class="bd-item-hook">
+                <label>记录人</label>
+                <text>{{item.UserName}}</text>
+              </view>
+              <view class="bd-item-hook">
+                <label>巡检时间</label>
+                <text>{{item.RegTime}}</text>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view wx:if="{{UnitTypeid!=3}}" class="common-cell">
+        <view data-idx="5" class="common-cell-hd" bindtap="toggle">
+          <text>学校信息</text>
+          <image src="{{show[5]?'../../../../images/downtip.png':'../../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[5]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>学校名称</label>
+              <text>{{list.SchoolName}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>学校负责人</label>
+              <text>{{list.SchoolUser}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>联系电话</label>
+              <text>{{list.SchoolUserMobile}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>企业负责人</label>
+              <text>{{list.CompanyUser}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>联系电话</label>
+              <text>{{list.CompanyUserMobile}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>合同金额</label>
+              <text>{{list.ItemAmount}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>变更金额</label>
+              <text>{{list.ItemExtAmount}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>结算金额</label>
+              <text>{{list.ItemSettleAmount}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

@@ -1,0 +1,34 @@
+
+<!--junfeipage/working/projectrouting/projectrouting.wxml-->
+<view class="container">
+  <view wx:for="{{proroutList}}" class="projectcells" data-projectcode="{{item.ProjectCode}}" bindtap="proroutlisttap">
+      <view class="projectcell">
+      <label>项目编号</label>
+      <text>{{item.ProjectCode}}</text>
+    </view>
+    <view class="projectcell">
+      <label>项目名称</label>
+      <text>{{item.ProjectName}}</text>
+    </view>
+    <view class="projectcell">
+      <label>学校名称</label>
+      <text>{{item.SchoolName}}</text>
+    </view>
+    <view class="projectcell">
+      <label>施工单位</label>
+      <text>{{item.CompanyName}}</text>
+    </view>
+    <view class="operate clearfix">
+      <view class="fillrecord" catchtap="fillrecord" data-routdetailid="{{item.ProjectRegulatorId}}" data-proitemid="{{item.ProjectItemId}}" data-schoolid="{{item.SchoolId}}" data-companyid="{{item.CompanyId}}" data-projectid="{{item.ProjectId}}">填写巡检记录</view>
+    </view>
+  </view>
+  <view hidden="{{hidden}}">
+    <view class="preloader" wx:if="{{hasMore}}">
+      <icon type="waiting" size="25" />
+      <text>玩命的加载中...</text>
+    </view>
+    <view class="preloader" wx:else>
+      <text>没有更多内容了</text>
+    </view>
+  </view>
+</view>

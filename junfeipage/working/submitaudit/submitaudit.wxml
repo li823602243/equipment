@@ -1,0 +1,30 @@
+
+<!--提交验收-->
+<import src="../../../common/workindex/workindex.wxml" />
+<import src="../../../common/wetoast/wetoast.wxml"/>
+<view class="container">
+  <template is="projectChoose"  data="{{projectnum,projectname,schoolname,prurl,projectid,hasschoolurl,schoolsstatus}}"  />
+  <form report-submit bindsubmit="formSubmit"> 
+  <view class="project-textarea">
+    <label>项目自验说明</label>
+    <textarea  name="prTextarea" value="{{prComment}}" placeholder="填写说明" />
+  </view>
+  <view wx:if="{{outdate}}" class="project-textarea">
+    <label>项目超期原因</label>
+    <textarea  value="{{outdateComment}}"  name="outdateTextarea"   placeholder="填写原因(必填)" />
+  </view> 
+   <view  wx:if="{{isnopass}}" class="project-textarea">
+    <label>验收不通过</label>
+     <view style="color:red;">{{isnopassComment}}</view>
+  </view> 
+  <view bindtap="submitlisttap" class="submitlist">
+  <button class="save" formType="submit">申请验收</button>
+</view>
+</form>
+<view class="overcontent" style="text-align:center;">
+    <text wx:for="{{overconent}}">
+        {{item.TypeName}}
+    </text>
+</view>
+</view>
+  <template is="wetoast" data="{{... __wetoast__}}"/>

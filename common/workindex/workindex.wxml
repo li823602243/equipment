@@ -1,0 +1,77 @@
+
+<!--主页面模板组件-->
+<template name="peraccept">
+  <view wx:for="{{pageItems}}" wx:key="{{index}}" class="workindex-content">
+    <view class="workindex-title">
+      <text>{{item.FunName}}</text>
+    </view>
+    <view class="workindex-container clearfix">
+      <block wx:for="{{item.Children}}" wx:key="{{index}}" wx:for-item="itemName">
+        <navigator wx:if="{{itemName.Url}}" url="../../{{itemName.Url}}" class="work-item">
+          <view class="work-icon-wrapper">
+            <image src="../../{{itemName.SmallIcon}}" class="work-icon"></image>
+          </view>
+          <view class="work-text-wrapper">
+            <text class="work-text">{{itemName.FunName}}</text>
+          </view>
+        </navigator>
+        <view wx:else class="work-item">
+          <view class="work-icon-wrapper">
+            <image src="../../{{itemName.SmallIcon}}" class="work-icon"></image>
+          </view>
+          <view class="work-text-wrapper">
+            <text style="color:#fff;" class="work-text">{{itemName.FunName}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</template>
+
+<!--选择图片模板组件-->
+<template name="chooseImg">
+  <view class="add-image">
+    <view class="add-image-title">{{imgtitle}}</view>
+    <view class="chooseImage">
+      <image bindtap="chooseImage" src="../../../images/work/chooseimg.png"></image>
+    </view>
+    <view class="weui-uploader__files">
+      <block wx:for="{{imageList}}" wx:for-item="image" wx:key="{{index}}">
+        <view class="weui-uploader__file">
+          <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+          <view bindtap="deleteimgtap" data-index="{{index}}" class="delete-img">
+            <image src="../../../images/deleteicon.png"></image>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</template>
+
+<!--选择项目编号，项目名称，学校名称模板组件-->
+<template name="projectChoose">
+  <view class="project-header">
+    <navigator class="project-item" url="../../../junfeipage/working/projectnumber/projectnumber">
+      <view>
+        <text>项目编号</text>
+        <view class="projectnum">{{projectnum}}</view>
+        <image src="../../../images/more.png"></image>
+      </view>
+    </navigator>
+    <view class="project-item">
+      <text>项目名称</text>
+      <view class="projectnum">{{projectname}}</view>
+    </view>
+    <navigator wx:if="{{hasschoolurl}}" class="project-item" url="../../../junfeipage/working/chooseSchool/chooseSchool?projectid={{projectid}}&schoolsstatus={{schoolsstatus}}">
+      <view>
+        <text>学校名称</text>
+        <view class="projectnum">{{schoolname}}</view>
+        <image src="../../../images/more.png"></image>
+      </view>
+    </navigator>
+    <view wx:else class="project-item">
+      <text>学校名称</text>
+      <view class="projectnum">{{schoolname}}</view>
+    </view>
+  </view>
+</template>

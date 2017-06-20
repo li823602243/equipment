@@ -1,0 +1,156 @@
+/* junfeipage/working/prosupervision/supervisiondetail/supervisiondetail.wxss */
+
+.content {
+  height: 100%;
+  overflow: auto;
+  font-size: 32rpx;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+}
+
+.content-wrapper {
+  min-height: 100%;
+  overflow: auto;
+}
+
+.content-main {
+  padding-bottom: 140px;
+}
+
+.common-cell-hd {
+  height: 35px;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+}
+
+.common-cell-hd text {
+  display: inline-block;
+  line-height: 35px;
+  width: 35%;
+  padding-left: 20px;
+  color: #468ceb;
+}
+
+.common-cell-hd image {
+  width: 24px;
+  height: 24px;
+  float: right;
+  margin-top: 5px;
+  margin-right: 15px;
+}
+
+.common-cell-bd {
+  height: 0;
+  overflow: hidden;
+}
+
+.common-bd-item {
+  margin: 0 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.bd-item-hook {
+  margin: 10px 0;
+}
+
+.bd-item-hook label {
+  display: inline-block;
+  width: 30%;
+  vertical-align: top;
+}
+
+.common-bd-item .title {
+  font-weight: bold;
+  line-height: 35px;
+}
+
+.bd-item-right {
+  display: inline-block;
+  width: 65%;
+}
+
+.common-bd-item .title label {
+  width: 35%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.common-bd-item .title text {
+  width: 60%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: right;
+}
+
+.com-sub-list {
+  margin-top: -140px;
+}
+
+.common-submit {
+  display: block;
+  width: 90%;
+  height: 35px;
+  text-align: center;
+  color: #fff;
+  line-height: 35px;
+  font-size: 16px;
+  margin: 0 auto 10px;
+  border-radius: 10rpx;
+  background: #468ceb;
+}
+
+.common-bd-show {
+  height: auto;
+  overflow: hidden;
+}
+
+.bd-item-hook radio-group {
+  width: 60%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.bd-item-hook radio-group radio {
+  width: 45%;
+  display: inline-block;
+}
+
+.bd-item-hook input {
+  width: 60%;
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid #eee;
+}
+
+.imglist {
+  position: relative;
+  display: inline-block;
+  padding: 0 5px;
+}
+
+.imglist text {
+  display: block;
+  width: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #468ceb;
+  border: 1px solid #eee;
+}
+
+.delete-img {
+  position: absolute;
+  right: -5px;
+  top: -8px;
+  z-index: 999;
+}
+
+.delete-img  image {
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.weui-uploader__img {
+  display: block;
+  width: 45px;
+  height: 45px;
+}

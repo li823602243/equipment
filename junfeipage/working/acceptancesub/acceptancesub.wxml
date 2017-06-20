@@ -1,0 +1,66 @@
+
+<!--提交审核-->
+<import src="../../../common/workindex/workindex.wxml" />
+<import src="../../../common/wetoast/wetoast.wxml" />
+<view class="container">
+  <template is="projectChoose" data="{{projectnum,projectname,schoolname,projectid,hasschoolurl,schoolsstatus}}" />
+  <view class="add-image">
+    <view class="add-image-title">验收报告复印件</view>
+    <view class="chooseImage">
+      <image bindtap="reportImage" src="../../../images/work/chooseimg.png"></image>
+    </view>
+    <view class="weui-uploader__files">
+      <block wx:for="{{reportList}}" wx:for-item="image" wx:key="{{index}}">
+        <view class="weui-uploader__file">
+          <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewreportImage"></image>
+          <!--<view bindtap="deleteimgtapreport" data-index="{{index}}" class="delete-img">
+            <image src="../../../images/deleteicon.png"></image>
+          </view>-->
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="add-image">
+    <view class="add-image-title">验收清单复印件</view>
+    <view class="chooseImage">
+      <image bindtap="detailedListImage" src="../../../images/work/chooseimg.png"></image>
+    </view>
+    <view class="weui-uploader__files">
+      <block wx:for="{{detailedList}}" wx:for-item="image" wx:key="{{index}}">
+        <view class="weui-uploader__file">
+          <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewListImage"></image>
+          <!--<view bindtap="deleteimgtaplist" data-index="{{index}}" class="delete-img">
+            <image src="../../../images/deleteicon.png"></image>
+          </view>-->
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="add-image">
+    <view class="add-image-title">资产调拨单复印件</view>
+    <view class="chooseImage">
+      <image bindtap="AssetsImage" src="../../../images/work/chooseimg.png"></image>
+    </view>
+    <view class="weui-uploader__files">
+      <block wx:for="{{AssetsList}}" wx:for-item="image" wx:key="{{index}}">
+        <view class="weui-uploader__file">
+          <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewAssetsImage"></image>
+          <!--<view bindtap="deleteimgtapassets" data-index="{{index}}" class="delete-img">
+            <image src="../../../images/deleteicon.png"></image>
+          </view>-->
+        </view>
+      </block>
+    </view>
+  </view>
+  <form bindsubmit="formSubmit" report-submit>
+    <view class="submitlist">
+      <button class="save" formType="submit">提交审核</button>
+    </view>
+  </form>
+  <view class="overcontent" style="text-align:center;">
+    <text wx:for="{{overconent}}">
+      {{item.TypeName}}
+    </text>
+  </view>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

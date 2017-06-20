@@ -1,0 +1,40 @@
+/* junfeipage/working/acceptancesub/acceptancesub.wxss */
+
+.add-image {
+  border-bottom: 1px solid #eee;
+}
+
+.weui-uploader__files {
+  width: 90%;
+  margin: 20rpx auto;
+}
+
+.weui-uploader__file {
+  position: relative;
+}
+
+.weui-uploader__img image {
+  border-radius: 10rpx;
+}
+
+.delete-img {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  z-index: 999;
+}
+
+.delete-img image {
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.overcontent {
+  margin-top: -35px;
+}
+
+.overcontent text {
+  display: block;
+  line-height: 20px;
+  height: 20px;
+}

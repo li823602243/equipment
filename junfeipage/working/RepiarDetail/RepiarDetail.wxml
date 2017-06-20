@@ -1,0 +1,178 @@
+
+<!--junfeipage/working/RepiarDetail/RepiarDetail.wxml-->
+<import src="../../../common/wetoast/wetoast.wxml" />
+<view class="content">
+  <view class="content-wrapper">
+    <view class="content-main">
+      <view class="common-cell">
+        <view data-idx="0" class="common-cell-hd" bindtap="toggle">
+          <text>报修信息</text>
+          <image src="{{show[0]?'../../../images/downtip.png':'../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[0]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>设备编码</label>
+              <text>{{list.AssetCode}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>设备名称</label>
+              <text>{{list.DeviceCodeName}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>设备品牌</label>
+              <text>{{list.Brand}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>设备型号</label>
+              <text>{{list.Model}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>存放地点</label>
+              <text>{{list.FullAddress}}</text>
+            </view>
+          </view>
+          <view class="common-bd-item">
+            <view class="bd-item-hook" wx:if="{{CompanyName!=''}}">
+              <label>报修单位</label>
+              <text>{{list.SchoolName}}</text>
+            </view>
+            <view class="bd-item-hook" wx:if="{{CompanyName==''}}">
+              <label>报 修 人</label>
+              <text>{{list.Name}}</text>
+            </view>
+            <view class="bd-item-hook" wx:if="{{list.NeedMobile==null}}">
+              <label>联系电话</label>
+              <text></text>
+            </view>
+             <view class="bd-item-hook" wx:if="{{list.NeedMobile!=null}}">
+              <label>联系电话</label>
+              <text>{{list.NeedMobile}}</text>
+            </view>
+          </view>
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>报修时间</label>
+              <text>{{list.RegTime}}</text>
+            </view>
+            <view class="bd-item-hook" wx:if="{{CompanyName!=''}}">
+              <label>是否过保</label>
+              <text>{{zhibao}}</text>
+            </view>
+          </view>
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>故障现象</label>
+              <text>{{list.Fault}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="common-cell" wx:if="{{statuz!='等待学校响应'&statuz!='等待企业响应'&statuz!='等待校长审批'&statuz!='校长审批不通过'&statuz!=21&statuz!=22&statuz!=10&statuz!=40}}">
+        <view data-idx="1" class="common-cell-hd" bindtap="toggle">
+          <text>维修记录</text>
+          <image src="{{show[1]?'../../../images/downtip.png':'../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[1]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view class="bd-item-hook" wx:if="{{CompanyName!=''}}">
+              <label>企业维修人</label>
+              <text>{{list.RepairUserName}}</text>
+            </view>
+            <view class="bd-item-hook" wx:if="{{CompanyName==''}}">
+              <label>校内维修人</label>
+              <text>{{list.RepairUserName}}</text>
+            </view>
+            <view class="bd-item-hook" wx:if="{{list.RepairMobile==null}}">
+              <label>联系电话</label>
+              <text></text>
+            </view>
+            <view class="bd-item-hook" wx:if="{{list.RepairMobile!=null}}">
+              <label>联系电话</label>
+              <text>{{list.RepairMobile}}</text>
+            </view>
+            <view class="bd-item-hook" wx:if="{{CompanyName!=''}}">
+              <label>维修单位</label>
+              <text>{{list.CompanyName}}</text>
+            </view>
+            <view class="bd-item-hook" wx:if="{{CompanyName==''}}">
+              <label>维修单位</label>
+              <text>校内</text>
+            </view>
+          </view>
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>故障确认</label>
+              <text>{{list.FaultConfirm}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>维修记录 </label>
+              <text>{{list.Memo}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>超时报警</label>
+              <radio-group>
+                <radio disabled value="{{checked}}" checked="{{checked}}">记录</radio>
+                <radio disabled value="{{!checked}}" checked="{{!checked}}">不记录</radio>
+              </radio-group>
+            </view>
+            <view class="bd-item-hook" wx:if="{{!checked}}">
+              <label>不记录原因</label>
+              <text>{{list.AlarmReason}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+     <view class="common-cell" wx:if="{{statuz!='等待学校响应'&statuz!='等待企业响应'&statuz!='等待校长审批'&statuz!='校长审批不通过'&statuz!=21&statuz!=22&statuz!=10&statuz!=40}}">
+        <view data-idx="2" class="common-cell-hd" bindtap="toggle">
+          <text>维修费用</text>
+          <image src="{{show[2]?'../../../images/downtip.png':'../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[2]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>服务费</label>
+              <text>¥{{list.ServiceFee}}</text>
+            </view>
+          </view>
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>配件费</label>
+              <text>¥{{list.PartsFee}}</text>
+            </view>
+          </view>
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>上门费</label>
+              <text>¥{{list.HomeFee}}</text>
+            </view>
+          </view>
+          <view class="common-bd-item">
+            <view class="title">
+              <label>费用合计</label>
+              <text style="color:red">¥{{totalFee}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="common-cell" wx:if="{{statuz!='等待学校响应'&statuz!='等待企业响应'&statuz!='等待校长审批'&statuz!='校长审批不通过'&statuz!=21&statuz!=22&statuz!=10&statuz!=40}}">
+        <view data-idx="3" class="common-cell-hd" bindtap="toggle">
+          <text>维修日志</text>
+          <image src="{{show[3]?'../../../images/downtip.png':'../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[3]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view wx:for="{{record}}" class="record-item">
+              <view>
+                {{item.RegTime}} {{item.OptName}} {{item.OptType}} 状态:
+                <text style="color:red">{{item.NextStatuz}}</text>
+                {{item.Memo}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

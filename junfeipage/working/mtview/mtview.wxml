@@ -1,0 +1,62 @@
+
+<!--junfeipage/working/myrepair/myrepair.wxml-->
+<import src="../../../common/wetoast/wetoast.wxml" />
+<import src="../../../common/wxsearch.wxml" />
+<view class="container">
+  <view class="mt-navbar" wx:if="{{unitid==3}}">
+    <block wx:for="{{schooltabs}}" wx:key="{{index}}">
+      <view id="{{index}}" class="mt-navbar__item {{activeIndex == index ? 'mt-bar__item_on' : ''}}" data-statuz="{{item.Statuz}}" bindtap="tabClick">
+        <label class="mt-navbar__title">{{item.Name}}</label>
+        <text style="margin-top:-5px;font-size:12px;display:block;">({{item.Num}})</text>
+      </view>
+    </block>
+    <view class="mt-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px);"></view>
+  </view>
+  <view class="mt-navbar" wx:if="{{unitid!=3}}">
+    <block wx:for="{{busstabs}}" wx:key="{{index}}">
+      <view id="{{index}}" class="mt-navbar__item {{activeIndex == index ? 'mt-bar__item_on' : ''}}" data-statuz="{{item.Statuz}}" bindtap="tabClick">
+        <label class="mt-navbar__title">{{item.Name}}</label>
+        <text style="margin-top:-5px;font-size:12px;display:block;">({{item.Num}})</text>
+      </view>
+    </block>
+    <view class="mt-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px);"></view>
+  </view>
+  <template is="wxsearch" data="{{searchname:'搜索',inputVal:inputVal,inputShowed:inputShowed,inputTyping:inputTyping,clearInput:clearInput,showInput:showInput,hideInput:hideInput,searchconfirm:searchconfirm}}" />
+  <view class="nodata" wx:if="{{hasnodata}}">暂无数据</view>
+  <view wx:else>
+    <block wx:for="{{list}}">
+      <view class="common-cell" bindtap="gotoDetail" data-id="{{item.Id}}">
+        <view class="common-cell-item">
+          <label>设备名称</label>
+          <text>{{item.DeviceCodeName}}</text>
+        </view>
+        <view class="common-cell-item" wx:if="{{unitid==3||unitid==2||unitid==1}}">
+          <label>维修单位</label>
+          <text>{{item.CompanyName}}</text>
+        </view>
+        <view class="common-cell-item" wx:if="{{unitid==4}}">
+          <label>报修单位</label>
+          <text>{{item.SchoolName}}</text>
+        </view>
+        <view class="common-cell-item">
+          <label>报修时间</label>
+          <text>{{item.RegTime}}</text>
+        </view>
+        <view class="common-cell-item">
+          <label>状态</label>
+          <text class="waring">{{item.Statuz}}</text>
+        </view>
+      </view>
+    </block>
+    <view hidden="{{hidden}}">
+      <view class="preloader" wx:if="{{hasMore}}">
+        <icon type="waiting" size="25" />
+        <text>玩命的加载中...</text>
+      </view>
+      <view class="preloader" wx:else>
+        <text>没有更多内容了</text>
+      </view>
+    </view>
+  </view>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

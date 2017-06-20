@@ -1,0 +1,21 @@
+
+<!--junfeipage/tool/index.wxml-->
+<view class="container">
+  <view class="project-item">
+    <text>质量追溯</text>
+    <input bindconfirm="barcodeinput" placeholder="请输入编码" />
+    <image bindtap="onesweep" src="../../images/barcode.png"></image>
+  </view>
+  <navigator url="../../junfeipage/working/toolsschool/toolsschool">
+    <view class="setting-item">
+      <text>学校查询</text>
+      <image src="../../images/more.png"></image>
+    </view>
+  </navigator>
+  <navigator url="../../junfeipage/working/toolscompany/toolscompany">
+    <view class="setting-item">
+      <text>企业查询</text>
+      <image src="../../images/more.png"></image>
+    </view>
+  </navigator>
+</view>

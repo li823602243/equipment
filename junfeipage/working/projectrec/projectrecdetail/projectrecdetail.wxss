@@ -1,0 +1,36 @@
+/* 整改详情 */
+
+.add-image {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.fileview {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 35rpx;
+  background: #fff;
+}
+
+.fileview .filetitle {
+  display: inline-block;
+  width: 15%;
+
+}
+.filereclist{
+ display: inline-block;
+   vertical-align:top;
+
+}
+.fileview .filelist {
+overflow:hidden;
+text-overflow:ellipsis;
+border:1px solid #eee;
+margin:10px 0;
+
+
+}
+
+.fileview view text {
+  padding: 0 15rpx;
+}

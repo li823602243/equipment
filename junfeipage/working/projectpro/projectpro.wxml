@@ -1,0 +1,52 @@
+
+<!--项目流程页面-->
+<import src="../../../common/workindex/workindex.wxml" />
+<import src="../../../common/wetoast/wetoast.wxml" />
+<view class="container">
+  <template is="projectChoose" data="{{projectnum,projectname,schoolname,projectid,hasschoolurl,schoolsstatus}}" />
+  <view class="project-item">
+    <text>流程名称</text>
+    <view wx:if="{{otherflag==1}}" class="projectnum">
+      <input bindinput="nodenameinput" placeholder="输入名称" />
+    </view>
+    <view wx:else class="projectnum">{{dicname}}</view>
+    <image bindtap="nodenametap" src="../../../images/more.png"></image>
+  </view>
+  <view class="project-item">
+    <view>
+      <text>流程排序</text>
+      <block wx:if="{{dicname=='项目完工'||dicname=='项目开工'}}">
+        <view class="projectnum">{{index}}</view>
+      </block>
+      <block wx:else>
+        <view class="projectnum">{{array[index]}}</view>
+        <picker class="choosedate" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <image src="../../../images/more.png"></image>
+        </picker>
+      </block>
+    </view>
+  </view>
+  <view class="project-item">
+    <view>
+      <text>备注</text>
+      <input value="{{explaincontent}}" bindinput="explaininput" style="display:inline-block;width:70%;" placeholder="流程说明" />
+    </view>
+  </view>
+  <view class="project-item">
+    <text>完成日期</text>
+    <view class="projectnum">{{date}}</view>
+    <picker class="choosedate" mode="date" value="{{date}}" bindchange="bindDateChange">
+      <image src="../../../images/more.png"></image>
+    </picker>
+  </view>
+  <view class="submitlist">
+    <view bindtap="savenodeTap" class="save">保存</view>
+  </view>
+  <view class="prodetailitem">
+    <view class="proitemname" wx:for="{{prodetaillist}}" wx:key="{{index}}">
+      <text class="protitle">{{item.Name}}</text>
+      <text class="protime">{{item.BeginDate}}</text>
+    </view>
+  </view>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

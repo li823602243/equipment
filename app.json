@@ -1,0 +1,110 @@
+{
+  "pages": [
+    "junfeipage/login/index",
+    "junfeipage/working/index",
+    "junfeipage/message/index",
+    "junfeipage/setting/index",
+    "junfeipage/tool/index",
+    "junfeipage/setting/accountmag/accountmag",
+    "junfeipage/working/processmaterials/processmaterials",
+    "junfeipage/working/projectnumber/projectnumber",
+    "junfeipage/working/projectpro/projectpro",
+    "junfeipage/working/barcode/barcode",
+    "junfeipage/working/projectrec/projectrec",
+    "junfeipage/working/submitaudit/submitaudit",
+    "junfeipage/working/acceptancesub/acceptancesub",
+    "junfeipage/working/projectprofile/projectprofile",
+    "junfeipage/working/projectprofile/projectprofiledetail/projectprofiledetail",
+    "junfeipage/working/mtresponse/mtresponse",
+    "junfeipage/working/mtdispatching/mtdispatching",
+    "junfeipage/working/myrepair/myrepair",
+    "junfeipage/working/mtview/mtview",
+    "junfeipage/working/chooseSchool/chooseSchool",
+    "junfeipage/working/getattachment/getattachment",
+    "junfeipage/working/projectrec/projectrecdetail/projectrecdetail",
+    "junfeipage/working/projectrec/projectrecdlist/projectrecdlist",
+    "junfeipage/working/mtresponse/mtresDetail/mtresDetail",
+    "junfeipage/working/mtdispatching/mtdisDetail/mtdisDetail",
+    "junfeipage/working/Equipinfo/Equipinfo",
+    "junfeipage/working/schoolrepair/schoolrepair",
+    "junfeipage/working/mytorepair/mytorepair",
+    "junfeipage/working/enterpriserepair/enterpriserepair",
+    "junfeipage/working/mtapproval/mtapproval",
+    "junfeipage/working/confirm/confirm",
+    "junfeipage/working/confirm/confirmdetail/confirmdetail",
+    "junfeipage/working/repeataddr/repeataddr",
+    "junfeipage/working/prosupervision/prosupervision",
+    "junfeipage/working/proacceptance/proacceptance",
+    "junfeipage/working/mtinspection/mtinspection",
+    "junfeipage/working/repairaddr/repairaddr",
+    "junfeipage/working/proacceptance/proacceptancedetail/proacceptancedetail",
+    "junfeipage/working/prosupervision/supervisiondetail/supervisiondetail",
+    "junfeipage/working/prosupervision/supervisionlist/supervisionlist",
+    "junfeipage/working/mtinspection/mtinspectionDetail/mtinspectionDetail",
+    "junfeipage/working/mtapproval/mtapprovalDetail/mtapprovalDetail",
+    "junfeipage/working/getprojectsection/getprojectsection",
+    "junfeipage/working/address/address",
+    "junfeipage/working/choosedevicename/choosedevicename",
+    "junfeipage/working/equiptree/equiptree",
+    "junfeipage/working/bussreper/bussreper",
+    "junfeipage/working/Projectaudit/Projectaudit",
+    "junfeipage/working/Projectaudit/Projectauditdetail/Projectauditdetail",
+    "junfeipage/working/projectrouting/projectrouting",
+    "junfeipage/working/projectrec/creatprorec/creatprorec",
+    "junfeipage/working/projectrouting/fillrecord/fillrecord",
+    "junfeipage/working/mytorepair/toratings/toratings",
+    "junfeipage/working/RepiarDetail/RepiarDetail",
+    "junfeipage/working/myrepair/myrepairDetail/myrepairDetail",
+    "junfeipage/working/toolsschool/toolsschool",
+    "junfeipage/working/toolscompany/toolscompany",
+    "junfeipage/working/projectprofile/prdetail/prdetail",
+    "junfeipage/working/projectrouting/proroutlist/proroutlist",
+    "junfeipage/working/projectrouting/proroutlistdetail/proroutlistdetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#468ceb",
+    "navigationBarTitleText": "骏飞科技",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f8f8f8"
+  },
+  "tabBar": {
+    "color": "#b5b5b5",
+    "selectedColor": "#468ceb",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "junfeipage/message/index",
+        "iconPath": "images/message.png",
+        "selectedIconPath": "images/messageselected.png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "junfeipage/working/index",
+        "iconPath": "images/work.png",
+        "selectedIconPath": "images/workselected.png",
+        "text": "工作"
+      },
+      {
+        "pagePath": "junfeipage/tool/index",
+        "iconPath": "images/tool.png",
+        "selectedIconPath": "images/toolselected.png",
+        "text": "工具"
+      },
+      {
+        "pagePath": "junfeipage/setting/index",
+        "iconPath": "images/setting.png",
+        "selectedIconPath": "images/settingselected.png",
+        "text": "设置"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

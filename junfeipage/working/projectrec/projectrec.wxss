@@ -1,0 +1,33 @@
+/* junfeipage/working/projectrec/projectrec.wxss */
+
+.weui-search-bar {
+  background: #fff;
+}
+
+.weui-icon-search {
+  margin-top: 3px;
+}
+
+.weui-search-bar__text {
+  vertical-align: top;
+  color: #fff;
+}
+
+.weui-search-bar__label {
+  background: #468ceb;
+}
+
+.searchcolor {
+  color: #fff;
+}
+
+.creatprorec {
+  width: 50%;
+  background: #dae8fb;
+  padding: 5px;
+  margin: 15px auto;
+  text-align: center;
+  color: #468ceb;
+  border: 1px solid #468ceb;
+  border-radius: 5px;
+}

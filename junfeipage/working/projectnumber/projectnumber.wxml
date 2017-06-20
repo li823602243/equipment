@@ -1,0 +1,31 @@
+<import src="../../../common/wxsearch.wxml" />
+<import src="../../../common/wetoast/wetoast.wxml" />
+<view class="weui-loadmore" wx:if="{{isloading}}">
+  <view class="weui-loading"></view>
+  <view class="weui-loadmore__tips">正在加载中...</view>
+</view>
+<view wx:else class="container">
+   <view class="preloader" wx:if="{{hasnodata}}">暂无数据</view>
+   <block wx:else>
+  <template wx:if="{{UnitTypeid==4}}" is="wxsearch" data="{{searchname:'项目编号',inputVal:inputVal,inputShowed:inputShowed,inputTyping:inputTyping,clearInput:clearInput,showInput:showInput,hideInput:hideInput,searchconfirm:searchconfirm}}" />
+  <view wx:if="{{UnitTypeid==4}}" class="weui-cells searchbar-result">
+    <block wx:for="{{wxSearchData}}" wx:key="{{index}}">
+      <view bindtap="prnumtap" data-num="{{item.ProjectCode}}" data-listid="{{item.Id}}" data-name="{{item.ProjectName}}" class="weui-cell" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">
+          <view>{{item.ProjectCode}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view wx:if="{{UnitTypeid!=4}}" class="weui-cells searchbar-result">
+    <block wx:for="{{wxSearchData}}" wx:key="{{index}}">
+      <view bindtap="prnumtap" data-num="{{item.ProjectCode}}" data-listid="{{item.Id}}" class="weui-cell" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">
+          <view>{{item.ProjectCode}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+   </block>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

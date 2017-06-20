@@ -1,0 +1,58 @@
+
+<!--junfeipage/working/mytorepair/mytorepair.wxml-->
+<import src="../../../common/wetoast/wetoast.wxml" />
+<view class="container">
+  <view class="nodata" wx:if="{{nodata}}">暂无数据</view>
+  <view wx:else>
+    <block wx:for="{{list}}" wx:key="{{index}}">
+      <view class="list-item">
+        <view class="list-cell-item" data-index="{{index}}" data-id="{{item.Id}}" bindtap="gotoDetail" data-statuz="{{item.Statuz}}">
+          <view class="list-item-hook">
+            <label>设备名称</label>
+            <text>{{item.DeviceCodeName}}</text>
+          </view>
+          <view class="list-item-hook">
+            <label>报修时间</label>
+            <text>{{item.RegTime}}</text>
+          </view>
+          <view class="list-item-hook">
+            <label>设备地点</label>
+            <text>{{item.Name}}</text>
+          </view>
+          <view class="list-item-hook">
+            <label>维修单位</label>
+            <text>{{item.CompanyName}}</text>
+          </view>
+          <view class="list-item-hook" wx:if="{{item.RepairUserName!=''}}">
+            <label>维修人</label>
+            <text>{{item.RepairUserName}}</text>
+          </view>
+          <view class="list-item-hook">
+            <label>状态</label>
+            <text class="waring">{{item.Statuz}}</text>
+          </view>
+        </view>
+        <view class="list-item-btn">
+          <view data-index="{{index}}" data-id="{{item.Id}}" catchtap="del" class="icon-del" wx:if="{{item.Statuz=='企业退回' || item.Statuz=='等待学校响应'||item.Statuz=='校长审批不通过'||item.Statuz=='等待校长审批'}}">删除</view>
+          <view data-index="{{index}}" data-id="{{item.Id}}" catchtap="SchoolEdit" data-statuz="{{item.Statuz}}" class="icon-btn" wx:if="{{item.Statuz=='等待学校响应'}}">修改</view>
+          <view data-index="{{index}}" data-id="{{item.Id}}" catchtap="editbypass" data-statuz="{{item.Statuz}}" class="icon-btn" wx:if="{{item.Statuz=='企业退回'}}">修改</view>
+          <view data-index="{{index}}" data-id="{{item.Id}}" catchtap="gotoEdit" data-statuz="{{item.Statuz}}" class="icon-btn" wx:if="{{item.Statuz=='校长审批不通过'}}">修改</view>
+          <view data-index="{{index}}" data-id="{{item.Id}}" catchtap="EntrantyEdit" data-statuz="{{item.Statuz}}" class="icon-btn" wx:if="{{item.Statuz=='等待校长审批'}}">修改</view>
+          <view data-index="{{index}}" data-id="{{item.Id}}" catchtap="gotoratings" class="icon-btn" wx:if="{{item.Statuz=='等待评价'}}">评价</view>
+
+          <!--<view data-index="{{index}}" data-id="{{item.Id}}" bindtap="gotoDetail" data-statuz="{{item.Statuz}}" class="" wx:if="{{item.Statuz!='企业退回' & item.Statuz!='等待学校响应'&item.Statuz!='校长审批不通过'& item.Statuz!='等待校长审批'}}">查看</view>-->
+        </view>
+      </view>
+    </block>
+    <view hidden="{{hidden}}">
+      <view class="preloader" wx:if="{{hasMore}}">
+        <icon type="waiting" size="25" />
+        <text>玩命的加载中...</text>
+      </view>
+      <view class="preloader" wx:else>
+        <text>没有更多内容了</text>
+      </view>
+    </view>
+  </view>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

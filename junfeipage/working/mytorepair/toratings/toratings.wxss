@@ -1,0 +1,72 @@
+/* junfeipage/working/mytorepair/toratings/toratings.wxss */
+.title{
+    margin: 15px 0 0 0 ;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    font-size: 18px;
+    color: #468ceb;
+}
+
+.ratings{
+    margin: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.ratings-item{
+    height: 40px;
+    padding: 0 20px;
+}
+
+.ratings-item label{
+    width: 35%;
+    line-height: 40px;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 18px;
+}
+
+.ratings-item view{
+    width: 65%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ratings-item-hook{
+    padding: 0 20px;
+}
+
+.ratings-item-hook label{
+    font-size: 18px;
+}
+
+.ratings-item-hook textarea{
+  border: 1px solid #eee;
+  height: 45px;
+  width: 100%;
+  margin: auto;
+  padding: 5px 0;
+  border-radius: 5px;
+  text-indent: 2em;
+}
+
+.ratings-item image{
+    width: 30px;
+    height:30px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.btn{
+    position: fixed;
+    bottom:15px;
+    height:45px;
+    width: 90%;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+    border-radius:10px;
+    background: #468ceb;
+    left:50%;
+    margin-left: -45%;
+    font-size: 18px;
+}

@@ -1,0 +1,7 @@
+/* junfeipage/working/repeataddr/repeataddr.wxss */
+page{
+    background: #fff;
+}
+.submitlist {
+    margin: 50% auto 10% auto;
+}

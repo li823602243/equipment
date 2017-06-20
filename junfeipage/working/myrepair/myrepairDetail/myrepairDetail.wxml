@@ -1,0 +1,279 @@
+
+<!--junfeipage/working/myrepair/myrepairDetail/myrepairDetail.wxml-->
+<import src="../../../../common/wetoast/wetoast.wxml" />
+<view class="content">
+  <view class="content-wrapper">
+    <view class="content-main">
+      <view class="common-cell">
+        <view data-idx="0" class="common-cell-hd" bindtap="toggle">
+          <text>报修信息</text>
+          <image src="{{show[0]?'../../../../images/downtip.png':'../../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[0]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view class="bd-item-hook" wx:if="{{Advice!=''}}">
+              <label>学校验收意见</label>
+              <text style="color:red">{{Advice}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>设备编码</label>
+              <text>{{list.AssetCode}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>设备名称</label>
+              <text>{{list.DeviceCodeName}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>设备品牌</label>
+              <text>{{list.Brand}}</text>
+            </view>
+
+            <!--<view class="bd-item-hook">
+              <label>设备型号</label>
+              <text>{{list.Model}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>存放地点</label>
+              <text>{{list.FullAddress}}</text>
+            </view>-->
+          </view>
+          <view class="common-bd-item">
+            <view class="bd-item-hook" wx:if="{{unitid==4}}">
+              <label>报修单位</label>
+              <text>{{list.SchoolName}}</text>
+            </view>
+            <view class="bd-item-hook" wx:if="{{unitid==3}}">
+              <label>报 修 人</label>
+              <text>{{list.Name}}</text>
+            </view>
+            <view class="bd-item-hook" wx:if="{{list.NeedMobile==null}}">
+              <label>联系电话</label>
+              <text></text>
+            </view>
+            <view class="bd-item-hook" wx:if="{{list.NeedMobile!=null}}">
+              <label>联系电话</label>
+              <text>{{list.NeedMobile}}</text>
+            </view>
+          </view>
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>报修时间</label>
+              <text>{{list.RegTime}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>是否过保</label>
+              <text>{{zhibao}}</text>
+            </view>
+          </view>
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>故障现象</label>
+              <text>{{list.Fault}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="common-cell">
+        <view data-idx="1" class="common-cell-hd" bindtap="toggle">
+          <text>维修记录</text>
+          <image src="{{show[1]?'../../../../images/downtip.png':'../../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[1]?'common-bd-show':''}}">
+
+          <!--<view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>企业维修人</label>
+              <text>{{list.RepairUserName}}</text>
+            </view>
+            <view class="bd-item-hook" wx:if="{{unitid==3}}">
+              <label>学校维修人</label>
+              <text>{{list.SchoolName}}</text>
+            </view>
+            <view class="bd-item-hook" wx:if="{{unitid==3}}">
+              <label>联系电话</label>
+              <text>{{list.NeedMobile}}</text>
+            </view>
+             <view class="bd-item-hook">
+              <label>联系电话</label>
+              <text>{{list.RepairMobile}}</text>
+            </view>
+            <view class="bd-item-hook" wx:if="{{unitid==3}}">
+              <label>维修单位</label>
+              <text>{{list.SchoolName}}</text>
+            </view>
+            <view class="bd-item-hook">
+              <label>维修单位</label>
+              <text>{{list.CompanyName}}</text>
+            </view>
+          </view>-->
+          <view class="common-bd-item">
+            <view class="bd-item-hook">
+              <label>故障确认</label>
+              <input type="text" value="{{Fault}}" bindinput="getFault" />
+            </view>
+            <view class="bd-item-hook">
+              <label>维修记录</label>
+              <input type="text" value="{{record}}" bindinput="getMemo" />
+            </view>
+            <view class="bd-item-hook">
+              <label>超时报警</label>
+              <radio-group bindchange="radioChange">
+                <radio value="{{checked}}" checked="{{checked}}">记录</radio>
+                <radio value="{{!checked}}" checked="{{!checked}}">不记录</radio>
+              </radio-group>
+            </view>
+            <view class="bd-item-hook">
+              <label>不记录原因</label>
+              <input type="text" value="{{AlarmReason}}" bindinput="getAlarmReason" />
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="common-cell">
+        <view data-idx="2" class="common-cell-hd" bindtap="toggle">
+          <text>维修费用</text>
+          <image src="{{show[2]?'../../../../images/downtip.png':'../../../../images/lefttip.png'}}"></image>
+        </view>
+        <view class="common-cell-bd {{show[2]?'common-bd-show':''}}">
+          <view class="common-bd-item">
+            <view class="title">
+              <label>服务费</label>
+              <text class="add" data-index="0" bindtap="add">添加</text>
+            </view>
+            <view class="Fee-item" wx:if="{{serverFee.length>0}}">
+              <label>项目名称</label>
+              <text>金额</text>
+              <text>操作</text>
+            </view>
+            <view class="Fee-item" wx:for="{{serverFee}}">
+              <label>{{item.ItemName}}</label>
+              <text class="money">¥{{item.Total}}</text>
+              <text class="del" bindtap="delserverfee" data-index="{{index}}">删除</text>
+            </view>
+          </view>
+          <view class="common-bd-item">
+            <view class="title">
+              <label>配件费</label>
+              <text class="add" data-index="1" bindtap="add">添加</text>
+            </view>
+            <view class="Fee-item" wx:if="{{partFee.length>0}}">
+              <label>配件名称</label>
+              <text>金额</text>
+              <text>操作</text>
+            </view>
+            <view class="Fee-item" wx:for="{{partFee}}">
+              <label>{{item.Name}}</label>
+              <text class="money">¥{{item.Total}}</text>
+              <text class="del" bindtap="delpartfee" data-index="{{index}}">删除</text>
+            </view>
+          </view>
+          <view class="common-bd-item">
+            <view class="title">
+              <label>上门费</label>
+              <input type="text" disabled="{{disabled}}" bindinput="getExtraPrice" />
+            </view>
+            <view>
+              <text>{{homefeeInfo}}</text>
+            </view>
+          </view>
+          <view class="common-bd-item">
+            <view class="title">
+              <label>费用合计</label>
+              <text style="color: red;">¥{{totalPrice}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="com-sub-list">
+    <form report-submit bindsubmit="save">
+      <button class="common-submit" formType="submit">
+        临时保存
+      </button>
+    </form>
+    <form report-submit bindsubmit="submit">
+      <button class="common-submit" formType="submit">
+        维修完成
+      </button>
+    </form>
+    <form report-submit bindsubmit="undoBack">
+      <button formType="submit" class="common-submit" wx:if="{{unitid==4}}">
+        报修退回
+      </button>
+    </form>
+    <view class="common-submit" bindtap="Undores" wx:if="{{unitid==3}}">
+      撤销响应
+    </view>
+    <view class="common-submit" wx:if="{{unitid==3}}" bindtap="transforcop">
+      转报企业
+    </view>
+  </view>
+</view>
+<view class="zhezhao" hidden="{{hidden}}"></view>
+<view class="Model" hidden="{{hidden}}">
+  <form>
+    <view class="model-item special" wx:if="{{type==0}}">
+      <label>维修项目:</label>
+      <input type="text" value="{{ItemName}}" bindinput="getmtname" />
+      <picker mode="selector" range="{{ItemNames}}" value="{{ItemNames}}" bindchange="mtnameChange">
+        <image src="../../../../images/more.png"></image>
+      </picker>
+    </view>
+    <view class="model-item special" wx:if="{{type==1}}">
+      <label>配件名称:</label>
+      <input type="text" value="{{Name}}" bindinput="getPjname" />
+      <picker mode="selector" range="{{Names}}" value="{{Names}}" bindchange="pjnameChange">
+        <image src="../../../../images/more.png"></image>
+      </picker>
+    </view>
+    <view class="model-item" wx:if="{{type==1}}">
+      <label>品牌 :</label>
+      <input type="text" bindinput="getBrand" />
+    </view>
+    <view class="model-item" wx:if="{{type==1}}">
+      <label>型号 :</label>
+      <input type="text" bindinput="getModel" />
+    </view>
+    <view class="model-item">
+      <label>数量 :</label>
+      <input type="number" bindinput="getPjnum" />
+    </view>
+    <view class="model-item">
+      <picker mode="selector" range="{{unitNames}}" value="{{unitNames}}" bindchange="listenerPickerSelected">
+        <label>单位:</label>
+        <text>{{UnitName}}</text>
+        <image src="../../../../images/more.png"></image>
+      </picker>
+    </view>
+    <view class="model-item" wx:if="{{type==0}}">
+      <label>单价 :</label>
+      <input type="number" value="{{Price}}" bindinput="getPjprice" />
+    </view>
+    <view class="model-item" wx:if="{{type==1}}">
+      <label>单价 :</label>
+      <input type="number" value="{{Price}}" bindinput="getPjprice" />
+    </view>
+    <!--<view class="model-item" wx:if="{{type==0}}">
+      <label>限价 :</label>
+      <text>{{PriceMax}}</text>
+    </view>
+    <view class="model-item" wx:if="{{type==1}}">
+      <label>参考价 :</label>
+      <text>{{ReferencePrice}}</text>
+    </view>-->
+    <view class="model-item">
+      <label>质保期(月) :</label>
+      <input type="number" bindinput="getPjmonths" />
+    </view>
+    <view class="model-item">
+      <label>备注 :</label>
+      <input type="text" bindinput="getPjmemo" />
+    </view>
+    <view class="model-item" style="margin-top:20px">
+      <button form-type="reset" bindtap="Determine">确定</button>
+      <button form-type="reset" bindtap="Cancel">取消</button>
+    </view>
+  </form>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

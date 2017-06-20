@@ -1,0 +1,37 @@
+.bd-item-hook {
+  margin: 10px 0;
+}
+
+.bd-item-hook label {
+  display: inline-block;
+  width: 30%;
+  vertical-align: top;
+}
+
+.imglist {
+  position: relative;
+  display: inline-block;
+  padding: 0 5px;
+}
+
+.delete-img {
+  position: absolute;
+  right: -5px;
+  top: -8px;
+  z-index: 999;
+}
+
+.delete-img  image {
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.weui-uploader__img {
+  display: block;
+  width: 45px;
+  height: 45px;
+}
+
+.add-image {
+  border-bottom: 1px solid #eee;
+}

@@ -1,0 +1,33 @@
+/* junfeipage/working/address/address.wxss */
+
+.addressleft {
+display:inline-block;
+width:40%;
+border:1px solid #eee;
+background:#fff;
+
+}
+
+.addressright {
+  display: inline-block;
+  width: 59%;
+  vertical-align: top;
+  background: #fff;
+}
+
+.addresscontent {
+  width: 100%;
+}
+
+.addressP {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+.addrtext{
+ padding:10px;
+border-top:1px solid #eee;
+
+}
+.active-on{
+  color: #468ceb;
+}

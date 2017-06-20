@@ -1,0 +1,35 @@
+
+<!--junfeipage/working/equiptree/equiptree.wxml-->
+<import src="../../../common/wetoast/wetoast.wxml" />
+<view class="container">
+
+  <!--<block wx:for="{{list}}">
+    <view style="position:absolute;top:0;bottom:0; overflow-y: hidden;" class="addresscontent">
+      <scroll-view scroll-y="true" style="height:100%;" class="addressleft">
+        <view class="addressP">
+          {{item.Name}}
+        </view>
+      </scroll-view>
+      <scroll-view scroll-y="true" style="height:100%;" class="addressright">
+        <view class="addrtext" wx:for="{{item.Children}}" wx:for-item="equipitem" data-pid="{{equipitem.Pid}}" data-equip="{{equipitem.Name}}" bindtap="chooseEquip" data-equid="{{equipitem.Id}}">
+          {{equipitem.Name}}
+        </view>
+      </scroll-view>
+    </view>
+  </block>-->
+  <view style="position:absolute;top:0;bottom:0; overflow-y: hidden;" class="addresscontent">
+    <scroll-view scroll-y="true" style="height:100%;" class="addressleft">
+      <block wx:for="{{list}}">
+        <view class="addressP" bindtap="chooseChildren" data-idx="{{index}}">
+          {{item.Name}}
+        </view>
+      </block>
+    </scroll-view>
+    <scroll-view scroll-y="true" style="height:100%;" class="addressright">
+      <view class="addrtext" wx:for="{{equiplist}}" wx:for-item="equipitem" data-pid="{{equipitem.Pid}}" data-equip="{{equipitem.Name}}" bindtap="chooseEquip" data-equid="{{equipitem.Id}}">
+          {{equipitem.Name}}
+        </view>
+    </scroll-view>
+  </view>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />

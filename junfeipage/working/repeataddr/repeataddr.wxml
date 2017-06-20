@@ -1,0 +1,19 @@
+ <!--地址修改-->
+ <import src="../../../common/wetoast/wetoast.wxml" />
+<view class="contaier">
+  <view class="project-item">
+    <text>资产编码</text>
+    <input bindconfirm="onesweepinput" value="{{onesweeptext}}" placeholder="请输入编码" />
+    <image bindtap="onesweep" src="../../../images/barcode.png"></image>
+  </view>
+  <view bindtap="chooseaddress"  class="project-item">
+    <text>存放地点</text>
+    <view class="projectnum">{{onesweepaddress}}</view>
+    <image src="../../../images/more.png"></image>
+  </view>
+  <view class="submitlist">
+    <view bindtap="submittap" class="save">提交</view>
+  </view>
+</view>
+ <template is="wetoast" data="{{... __wetoast__}}" />
+	 

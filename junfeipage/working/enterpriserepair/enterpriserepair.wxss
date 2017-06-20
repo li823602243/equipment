@@ -1,0 +1,69 @@
+/* junfeipage/working/enterpriserepair/enterpriserepair.wxss */
+.common-item{
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    padding: 15px 0;
+}
+
+.common-item label{
+    width: 25%;
+    display: inline-block;
+    margin-left: 5%;
+    vertical-align: middle;
+}
+
+.common-item text{
+    width: 60%;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.common-item picker.warranty{
+    width: 100%;
+}
+
+.common-item image,.common-item.special picker{
+    width: 50rpx;
+    height: 50rpx;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.common-item input{
+    width: 65%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.common-item textarea{
+    width: 65%;
+    display: inline-block;
+    vertical-align: top;
+    height: 50px;
+}
+
+.common-item.special input{
+    width: 60%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.submit{
+    width: 90%;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 10px;
+    margin: 0 auto;
+    left: 50%;
+    margin-left: -45%;
+    bottom: 10px;
+}
+
+.hasother{
+    width: 60%!important;
+    border: 1px solid #eee;
+}

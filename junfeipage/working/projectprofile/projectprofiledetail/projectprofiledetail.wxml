@@ -1,0 +1,43 @@
+
+<!--junfeipage/working/projectprofile/projectprofiledetail/projectprofiledetail.wxml-->
+<view class="container">
+  <view wx:for="{{profilelist}}" wx:for-item="itemName" class="projectcells" data-pritemid="{{itemName.ProjectItemId}}" data-projectid="{{itemName.ProjectId}}" bindtap="proaccepttap">
+    <view class="projectcell">
+      <label>项目编号</label>
+      <text>{{itemName.ProjectCode}}</text>
+    </view>
+    <view class="projectcell">
+      <label>项目名称</label>
+      <text>{{itemName.ProjectName}}</text>
+    </view>
+    <view class="projectcell">
+      <label>学校名称</label>
+      <text>{{itemName.SchoolName}}</text>
+    </view>
+    <view class="projectcell">
+      <label>项目工期</label>
+      <text>{{itemName.Duration}}天</text>
+    </view>
+    <view wx:if="{{itemName.SurplusDayNum<1}}" class="projectcell">
+      <label>超期</label>
+      <text style="color:#eb9f44;">{{itemName.overdata}}天</text>
+    </view>
+    <view class="projectcell">
+      <label>状态</label>
+      <text style="color: #ea9d3b;">{{itemName.Statuz}}</text>
+    </view>
+    <view class="projectcell">
+      <label>学校联系人</label>
+      <text>{{itemName.SchoolUser}},{{itemName.SchoolUserMobile}}</text>
+    </view>
+  </view>
+  <view hidden="{{hidden}}">
+    <view class="preloader" wx:if="{{hasMore}}">
+      <icon type="waiting" size="25" />
+      <text>玩命的加载中...</text>
+    </view>
+    <view class="preloader" wx:else>
+      <text>没有更多内容了</text>
+    </view>
+  </view>
+</view>

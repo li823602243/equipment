@@ -1,0 +1,21 @@
+
+<!--junfeipage/working/address/address.wxml-->
+<view class="container">
+  <view style="position:absolute;top:0;bottom:0; overflow-y: hidden;" class="addresscontent">
+    <scroll-view scroll-y="true" style="height:100%;" class="addressleft">
+      <block wx:for="{{list}}">
+        <view class="addressP {{activeIndex == index ? 'active-on' : ''}}" data-index="{{index}}" data-addrid="{{item.Id}}" bindtap="getsubAddr">
+          {{item.Name}}
+        </view>
+      </block>
+      <view class="addressP" bindtap="hasOther">
+        其它
+      </view>
+    </scroll-view>
+    <scroll-view scroll-y="true" style="height:100%;" class="addressright">
+      <view class="addrtext {{activerightIndex == index ? 'active-on' : ''}}" data-index="{{index}}" wx:for="{{subAddr}}" wx:for-item="subAddritem" data-addrname="{{subAddritem.Name}}" data-addrsubid="{{subAddritem.Id}}" bindtap="chooseAddr">
+        {{subAddritem.Name}}
+      </view>
+    </scroll-view>
+  </view>
+</view>

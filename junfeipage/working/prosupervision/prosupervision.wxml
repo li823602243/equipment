@@ -1,0 +1,92 @@
+
+<!--junfeipage/working/prosupervision/prosupervision.wxml-->
+<import src="../../../common/wetoast/wetoast.wxml" />
+<import src="../../../common/wxsearch.wxml" />
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for-items="{{tabs}}" wx:key="{{index}}">
+          <view id="{{index}}" data-statuz="{{item.statuz}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item.name}}
+              <text wx:if="{{item.statuz!='-2'}}" style="margin-top:-5px;font-size:12px;display:block;">({{item.num}})</text>
+            </view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px);"></view>
+      </view>      
+      <view class="weui-tab__panel preloader" wx:if="{{hasnodata}}">
+        暂无数据
+      </view>
+      <view wx:else class="weui-tab__panel">
+         <template  wx:if="{{Statuz=='-2'}}" is="wxsearch" data="{{searchname:'项目编号',inputVal:inputVal,inputShowed:inputShowed,inputTyping:inputTyping,clearInput:clearInput,showInput:showInput,hideInput:hideInput,searchconfirm:searchconfirm}}" />
+        <view data-profileid="{{itemName.ProjectId}}" bindtap="projectrectap" wx:if="{{Statuz=='-2'}}" wx:for="{{profilelist}}" wx:key="{{index}}" wx:for-item="itemName" class="projectcells">
+          <view class="projectcell">
+            <label>项目编号</label>
+            <text>{{itemName.ProjectCode}}</text>
+          </view>
+          <view class="projectcell">
+            <label>项目名称</label>
+            <text>{{itemName.ProjectName}}</text>
+          </view>
+          <view class="projectcell">
+            <label>学校数量</label>
+            <text>{{itemName.SchoolNum}}</text>
+          </view>
+          <view class="projectcell">
+            <label>项目工期</label>
+            <text>{{itemName.Duration}}天</text>
+          </view>
+          <view wx:if="{{itemName.SurplusDayNum<1}}" class="projectcell">
+            <label>超期</label>
+            <text style="color:#eb9f44;">{{itemName.overdata}}天</text>
+          </view>
+          <!--<view class="operate clearfix">
+            <view class="fillrecord" data-profileid="{{itemName.ProjectId}}" bindtap="projectrectap">查看</view>
+          </view>-->
+        </view>
+
+        <!--分项-->
+          <template  wx:if="{{Statuz!='-2'}}" is="wxsearch" data="{{searchname:'项目编号',inputVal:inputVal,inputShowed:inputShowed,inputTyping:inputTyping,clearInput:clearInput,showInput:showInput,hideInput:hideInput,searchconfirm:searchconfirm}}" />
+        <view wx:if="{{Statuz!='-2'}}" wx:for="{{profilelist}}" wx:key="{{index}}" wx:for-item="itemName" class="projectcells" data-pritemid="{{itemName.ProjectItemId}}" data-projectid="{{itemName.ProjectId}}" bindtap="proaccepttap">
+          <view class="projectcell">
+            <label>项目编号</label>
+            <text>{{itemName.ProjectCode}}</text>
+          </view>
+          <view class="projectcell">
+            <label>项目名称</label>
+            <text>{{itemName.ProjectName}}</text>
+          </view>
+          <view class="projectcell">
+            <label>学校名称</label>
+            <text>{{itemName.SchoolName}}</text>
+          </view>
+          <view class="projectcell">
+            <label>项目工期</label>
+            <text>{{itemName.Duration}}天</text>
+          </view>
+          <view wx:if="{{itemName.SurplusDayNum<1}}" class="projectcell">
+            <label>超期</label>
+            <text style="color:#eb9f44;">{{itemName.overdata}}天</text>
+          </view>
+          <view class="projectcell">
+            <label>学校联系人</label>
+            <text>{{itemName.SchoolUser}},{{itemName.SchoolUserMobile}}</text>
+          </view>
+        </view>
+
+        <!--分项-->
+        <view hidden="{{hidden}}">
+          <view class="preloader" wx:if="{{hasMore}}">
+            <icon type="waiting" size="25" />
+            <text>玩命的加载中...</text>
+          </view>
+          <view class="preloader" wx:else>
+            <text>没有更多内容了</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<template is="wetoast" data="{{... __wetoast__}}" />
